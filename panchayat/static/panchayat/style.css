@@ -2974,3 +2974,1325 @@ footer p {
     }
 
 }
+/* ==================================================
+   HERO SECTION
+================================================== */
+
+.hero {
+    position: relative;
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(
+        90deg,
+        #f8fbff 0%,
+        #f8fbff 42%,
+        #eef6ff 100%
+    );
+    padding: 55px 5%;
+}
+
+
+/* ==================================================
+   LEFT CONTENT
+================================================== */
+
+.hero-content {
+    width: 50%;
+    position: relative;
+    z-index: 5;
+    padding-right: 35px;
+}
+
+
+.welcome-text {
+    margin: 0 0 12px;
+    color: #294b73;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 6px;
+}
+
+
+.hero-content h1 {
+    margin: 0;
+    color: #12437c;
+    font-size: clamp(48px, 5vw, 76px);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+
+.hero-content h2 {
+    margin: 14px 0 18px;
+    color: #f36b21;
+    font-size: clamp(24px, 2.5vw, 34px);
+    font-weight: 750;
+}
+
+
+.hero-location {
+    margin: -5px 0 18px;
+    color: #315477;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.hero-description {
+    max-width: 570px;
+    margin: 0;
+    color: #405a78;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+/* ==================================================
+   HERO BUTTONS
+================================================== */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+
+.hero-buttons a {
+    text-decoration: none;
+}
+
+
+.primary-btn,
+.secondary-btn {
+    min-width: 235px;
+    height: 58px;
+    padding: 0 22px;
+    border-radius: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    transition: all 0.25s ease;
+}
+
+
+.primary-btn {
+    background: #ff6a00;
+    color: #ffffff !important;
+    border: 2px solid #ff6a00;
+    box-shadow: 0 8px 20px rgba(255, 106, 0, 0.20);
+}
+
+
+.primary-btn:hover {
+    background: #e85d00;
+    border-color: #e85d00;
+    transform: translateY(-3px);
+}
+
+
+.secondary-btn {
+    background: #ffffff;
+    color: #1456a0 !important;
+    border: 2px solid #1764c0;
+}
+
+
+.secondary-btn:hover {
+    background: #eef6ff;
+    transform: translateY(-3px);
+}
+
+
+.button-icon {
+    font-size: 18px;
+}
+
+
+.button-text {
+    white-space: nowrap;
+}
+
+
+.button-arrow {
+    font-size: 21px;
+    margin-left: 5px;
+}
+
+
+/* ==================================================
+   HERO FEATURES
+================================================== */
+
+.hero-features {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+
+.hero-feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #3d5875;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    font-size: 17px;
+}
+
+
+.feature-line {
+    width: 1px;
+    height: 25px;
+    background: #b8c8d9;
+}
+
+
+/* ==================================================
+   RIGHT SIDE IMAGE
+================================================== */
+
+.hero-image-wrapper {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 58%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    z-index: 1;
+}
+
+
+.hero-image-shape {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius:
+        50% 0 0 50% /
+        45% 0 0 55%;
+}
+
+
+.hero-image-shape::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 28%;
+    height: 100%;
+
+    z-index: 2;
+
+    background: linear-gradient(
+        90deg,
+        #f8fbff 0%,
+        rgba(248, 251, 255, 0.95) 25%,
+        rgba(248, 251, 255, 0) 100%
+    );
+}
+
+
+.hero-image-shape img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transform: scale(1.02);
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        min-height: auto;
+        padding: 55px 6%;
+    }
+
+    .hero-content {
+        width: 55%;
+    }
+
+    .hero-image-wrapper {
+        width: 52%;
+    }
+
+    .hero-content h1 {
+        font-size: 50px;
+    }
+
+    .hero-content h2 {
+        font-size: 26px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        min-width: 190px;
+        height: 52px;
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+
+        padding: 50px 6%;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .hero-content h2 {
+        font-size: 25px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .hero-features {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .feature-line {
+        display: none;
+    }
+
+    .hero-image-wrapper {
+        position: relative;
+
+        width: 100%;
+        height: 330px;
+
+        margin-top: 40px;
+    }
+
+    .hero-image-shape {
+        border-radius: 30px;
+    }
+
+    .hero-image-shape::before {
+        display: none;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content h2 {
+        font-size: 22px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .hero-features {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-image-wrapper {
+        height: 270px;
+    }
+}
+/* =========================================================
+   MERI PANCHAYAT - HERO FINAL DESIGN
+========================================================= */
+
+section.hero {
+    position: relative !important;
+    min-height: 570px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    background: #f7fbff !important;
+    padding: 50px 5% !important;
+}
+
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+section.hero .hero-content {
+    width: 48% !important;
+    position: relative !important;
+    z-index: 10 !important;
+    padding-right: 25px !important;
+}
+
+
+section.hero .welcome-text {
+    margin: 0 0 12px !important;
+    color: #294d76 !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    letter-spacing: 6px !important;
+}
+
+
+section.hero .hero-content h1 {
+    margin: 0 !important;
+    color: #124681 !important;
+    font-size: 68px !important;
+    line-height: 1.05 !important;
+    font-weight: 800 !important;
+    letter-spacing: -2px !important;
+}
+
+
+section.hero .hero-content h2 {
+    margin: 12px 0 18px !important;
+    color: #f36b21 !important;
+    font-size: 31px !important;
+    line-height: 1.2 !important;
+    font-weight: 750 !important;
+}
+
+
+section.hero .hero-location {
+    margin: -5px 0 15px !important;
+    color: #315477 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+
+section.hero .hero-description {
+    max-width: 570px !important;
+    margin: 0 !important;
+    color: #405a78 !important;
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+}
+
+
+/* =========================================================
+   BUTTON CONTAINER
+========================================================= */
+
+section.hero .hero-buttons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+    margin-top: 30px !important;
+}
+
+
+/* =========================================================
+   BOTH BUTTONS
+========================================================= */
+
+section.hero .hero-buttons a.primary-btn,
+section.hero .hero-buttons a.secondary-btn {
+
+    height: 58px !important;
+    min-width: 235px !important;
+
+    padding: 0 22px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 9px !important;
+
+    border-radius: 32px !important;
+
+    text-decoration: none !important;
+
+    font-family: Arial, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+
+    box-sizing: border-box !important;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease !important;
+}
+
+
+/* =========================================================
+   EXPLORE SERVICES
+========================================================= */
+
+section.hero .hero-buttons a.primary-btn {
+
+    background: #ff6a00 !important;
+
+    color: #ffffff !important;
+
+    border: 2px solid #ff6a00 !important;
+
+    box-shadow:
+        0 8px 20px rgba(255, 106, 0, 0.22) !important;
+}
+
+
+section.hero .hero-buttons a.primary-btn:hover {
+
+    background: #e85d00 !important;
+
+    border-color: #e85d00 !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 25px rgba(255, 106, 0, 0.30) !important;
+}
+
+
+/* =========================================================
+   SUBMIT COMPLAINT
+========================================================= */
+
+section.hero .hero-buttons a.secondary-btn {
+
+    background: #ffffff !important;
+
+    color: #1456a0 !important;
+
+    border: 2px solid #1764c0 !important;
+
+    box-shadow: none !important;
+}
+
+
+section.hero .hero-buttons a.secondary-btn:hover {
+
+    background: #eef6ff !important;
+
+    color: #1456a0 !important;
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 8px 18px rgba(23, 100, 192, 0.12) !important;
+}
+
+
+/* =========================================================
+   BUTTON ICON + ARROW
+========================================================= */
+
+section.hero .button-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    font-size: 18px !important;
+}
+
+
+section.hero .button-text {
+    white-space: nowrap !important;
+}
+
+
+section.hero .button-arrow {
+    margin-left: 5px !important;
+
+    font-size: 21px !important;
+
+    line-height: 1 !important;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+section.hero .hero-features {
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 15px !important;
+
+    margin-top: 38px !important;
+}
+
+
+section.hero .hero-feature {
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 8px !important;
+
+    color: #405a78 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+
+    white-space: nowrap !important;
+}
+
+
+section.hero .feature-icon {
+
+    width: 25px !important;
+    height: 25px !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    font-size: 17px !important;
+}
+
+
+section.hero .feature-line {
+
+    width: 1px !important;
+
+    height: 25px !important;
+
+    background: #b9c9d9 !important;
+}
+
+
+/* =========================================================
+   RIGHT SIDE IMAGE
+========================================================= */
+
+section.hero .hero-image-wrapper {
+
+    position: absolute !important;
+
+    top: 0 !important;
+    right: 0 !important;
+
+    width: 57% !important;
+    height: 100% !important;
+
+    z-index: 2 !important;
+
+    display: block !important;
+}
+
+
+section.hero .hero-image-shape {
+
+    position: absolute !important;
+
+    top: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    overflow: hidden !important;
+
+    border-radius:
+        48% 0 0 48% /
+        55% 0 0 45% !important;
+}
+
+
+/* =========================================================
+   SOFT WHITE FADE BETWEEN TEXT AND IMAGE
+========================================================= */
+
+section.hero .hero-image-shape::before {
+
+    content: "" !important;
+
+    position: absolute !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 30% !important;
+    height: 100% !important;
+
+    z-index: 3 !important;
+
+    pointer-events: none !important;
+
+    background: linear-gradient(
+        90deg,
+        #f7fbff 0%,
+        rgba(247, 251, 255, 0.92) 20%,
+        rgba(247, 251, 255, 0.45) 55%,
+        rgba(247, 251, 255, 0) 100%
+    ) !important;
+}
+
+
+/* =========================================================
+   IMAGE ITSELF
+========================================================= */
+
+section.hero .hero-image-shape img {
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block !important;
+
+    object-fit: cover !important;
+
+    object-position: center !important;
+
+    border: none !important;
+
+    outline: none !important;
+}
+
+
+/* =========================================================
+   DESKTOP LARGE
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    section.hero {
+        min-height: 590px !important;
+        padding-left: 5% !important;
+    }
+
+    section.hero .hero-content h1 {
+        font-size: 72px !important;
+    }
+
+    section.hero .hero-image-wrapper {
+        width: 58% !important;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    section.hero {
+        min-height: 520px !important;
+        padding: 45px 5% !important;
+    }
+
+    section.hero .hero-content {
+        width: 52% !important;
+    }
+
+    section.hero .hero-content h1 {
+        font-size: 52px !important;
+    }
+
+    section.hero .hero-content h2 {
+        font-size: 25px !important;
+    }
+
+    section.hero .hero-description {
+        font-size: 15px !important;
+    }
+
+    section.hero .hero-buttons {
+        gap: 10px !important;
+    }
+
+    section.hero .hero-buttons a.primary-btn,
+    section.hero .hero-buttons a.secondary-btn {
+        min-width: 190px !important;
+        height: 52px !important;
+        font-size: 14px !important;
+    }
+
+    section.hero .hero-feature {
+        font-size: 11px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    section.hero {
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        min-height: auto !important;
+
+        padding: 45px 6% !important;
+    }
+
+
+    section.hero .hero-content {
+
+        width: 100% !important;
+
+        padding-right: 0 !important;
+    }
+
+
+    section.hero .hero-content h1 {
+        font-size: 46px !important;
+    }
+
+
+    section.hero .hero-content h2 {
+        font-size: 24px !important;
+    }
+
+
+    section.hero .hero-description {
+        font-size: 15px !important;
+    }
+
+
+    section.hero .hero-buttons {
+
+        flex-wrap: wrap !important;
+
+        margin-top: 25px !important;
+    }
+
+
+    section.hero .hero-features {
+
+        flex-wrap: wrap !important;
+
+        margin-top: 30px !important;
+    }
+
+
+    section.hero .feature-line {
+        display: none !important;
+    }
+
+
+    section.hero .hero-image-wrapper {
+
+        position: relative !important;
+
+        top: auto !important;
+        right: auto !important;
+
+        width: 100% !important;
+
+        height: 330px !important;
+
+        margin-top: 40px !important;
+    }
+
+
+    section.hero .hero-image-shape {
+
+        position: relative !important;
+
+        width: 100% !important;
+
+        height: 100% !important;
+
+        border-radius: 30px !important;
+    }
+
+
+    section.hero .hero-image-shape::before {
+        display: none !important;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    section.hero .hero-content h1 {
+        font-size: 39px !important;
+    }
+
+
+    section.hero .hero-buttons {
+
+        flex-direction: column !important;
+
+        align-items: stretch !important;
+    }
+
+
+    section.hero .hero-buttons a.primary-btn,
+    section.hero .hero-buttons a.secondary-btn {
+
+        width: 100% !important;
+
+        min-width: 0 !important;
+    }
+
+
+    section.hero .hero-features {
+
+        flex-direction: column !important;
+
+        align-items: flex-start !important;
+    }
+
+
+    section.hero .hero-image-wrapper {
+        height: 270px !important;
+    }
+}
+/* =========================================================
+   ALL CONTENT LINKS → BUTTON STYLE
+   MERI PANCHAYAT
+========================================================= */
+
+
+/* =========================================================
+   COMMON BUTTON STYLE
+========================================================= */
+
+.service-card a,
+.notice a,
+.development-item a,
+.final-item a,
+.about-box a,
+.contact-actions a {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    margin-top: 16px !important;
+
+    padding: 11px 20px !important;
+
+    min-height: 42px !important;
+
+    border-radius: 24px !important;
+
+    text-decoration: none !important;
+
+    font-family: Arial, sans-serif !important;
+
+    font-size: 14px !important;
+
+    font-weight: 700 !important;
+
+    transition:
+        all 0.25s ease !important;
+
+    cursor: pointer !important;
+}
+
+
+/* =========================================================
+   SERVICE CARD BUTTONS
+========================================================= */
+
+.service-card a {
+
+    background: #ffffff !important;
+
+    color: #1456a0 !important;
+
+    border: 1.5px solid #1764c0 !important;
+
+    box-shadow:
+        0 4px 10px rgba(20, 86, 160, 0.08) !important;
+}
+
+
+.service-card a:hover {
+
+    background: #1456a0 !important;
+
+    color: #ffffff !important;
+
+    border-color: #1456a0 !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 7px 16px rgba(20, 86, 160, 0.18) !important;
+}
+
+
+/* =========================================================
+   NOTICE BUTTONS
+========================================================= */
+
+.notice a {
+
+    background: #ffffff !important;
+
+    color: #1456a0 !important;
+
+    border: 1.5px solid #1764c0 !important;
+}
+
+
+.notice a:hover {
+
+    background: #1456a0 !important;
+
+    color: #ffffff !important;
+
+    border-color: #1456a0 !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 7px 16px rgba(20, 86, 160, 0.18) !important;
+}
+
+
+/* =========================================================
+   DEVELOPMENT BUTTONS
+========================================================= */
+
+.development-item a {
+
+    background: #ffffff !important;
+
+    color: #1456a0 !important;
+
+    border: 1.5px solid #1764c0 !important;
+}
+
+
+.development-item a:hover {
+
+    background: #1456a0 !important;
+
+    color: #ffffff !important;
+
+    border-color: #1456a0 !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 7px 16px rgba(20, 86, 160, 0.18) !important;
+}
+
+
+/* =========================================================
+   FINAL SECTION BUTTONS
+========================================================= */
+
+.final-item a {
+
+    background: #ffffff !important;
+
+    color: #1456a0 !important;
+
+    border: 1.5px solid #1764c0 !important;
+}
+
+
+.final-item a:hover {
+
+    background: #1456a0 !important;
+
+    color: #ffffff !important;
+
+    border-color: #1456a0 !important;
+
+    transform: translateY(-2px) !important;
+}
+
+
+/* =========================================================
+   ABOUT / FUNDS BUTTONS
+========================================================= */
+
+.about-box a {
+
+    background: #ff6a00 !important;
+
+    color: #ffffff !important;
+
+    border: 2px solid #ff6a00 !important;
+
+    box-shadow:
+        0 5px 14px rgba(255, 106, 0, 0.18) !important;
+}
+
+
+.about-box a:hover {
+
+    background: #e85d00 !important;
+
+    color: #ffffff !important;
+
+    border-color: #e85d00 !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 8px 18px rgba(255, 106, 0, 0.25) !important;
+}
+
+
+/* =========================================================
+   CONTACT BUTTONS
+========================================================= */
+
+.contact-actions a {
+
+    min-height: 48px !important;
+
+    padding: 12px 24px !important;
+
+    border-radius: 26px !important;
+}
+
+
+.contact-actions a.primary,
+.contact-actions .primary {
+
+    background: #ff6a00 !important;
+
+    color: #ffffff !important;
+
+    border: 2px solid #ff6a00 !important;
+}
+
+
+.contact-actions a.primary:hover,
+.contact-actions .primary:hover {
+
+    background: #e85d00 !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px) !important;
+}
+
+
+.contact-actions a.secondary,
+.contact-actions .secondary {
+
+    background: #ffffff !important;
+
+    color: #1456a0 !important;
+
+    border: 2px solid #1764c0 !important;
+}
+
+
+.contact-actions a.secondary:hover,
+.contact-actions .secondary:hover {
+
+    background: #1456a0 !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px) !important;
+}
+
+
+/* =========================================================
+   COMPLAINT CARD BUTTONS
+========================================================= */
+
+.complaint-card a {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    min-height: 46px !important;
+
+    padding: 12px 22px !important;
+
+    border-radius: 25px !important;
+
+    text-decoration: none !important;
+
+    font-size: 14px !important;
+
+    font-weight: 700 !important;
+
+    transition: all 0.25s ease !important;
+}
+
+
+.complaint-card a.primary,
+.complaint-card a.complaint-btn {
+
+    background: #ff6a00 !important;
+
+    color: #ffffff !important;
+
+    border: 2px solid #ff6a00 !important;
+
+    box-shadow:
+        0 5px 14px rgba(255, 106, 0, 0.18) !important;
+}
+
+
+.complaint-card a.primary:hover,
+.complaint-card a.complaint-btn:hover {
+
+    background: #e85d00 !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px) !important;
+}
+
+
+.complaint-card a.secondary {
+
+    background: #ffffff !important;
+
+    color: #1456a0 !important;
+
+    border: 2px solid #1764c0 !important;
+}
+
+
+.complaint-card a.secondary:hover {
+
+    background: #1456a0 !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .service-card a,
+    .notice a,
+    .development-item a,
+    .final-item a,
+    .about-box a {
+
+        width: auto !important;
+
+        max-width: 100% !important;
+
+        padding: 10px 17px !important;
+
+        font-size: 13px !important;
+    }
+
+
+    .complaint-card a {
+
+        width: 100% !important;
+    }
+
+
+    .contact-actions {
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        gap: 12px !important;
+    }
+
+
+    .contact-actions a {
+
+        width: 100% !important;
+    }
+}

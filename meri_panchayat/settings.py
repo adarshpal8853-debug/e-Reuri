@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-dr=xt(vgr_8$(gu3s(z1s6bhee)bhb5i0j(qmk-(z*iflwc54=
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
     "e-reuri.vercel.app",
     ".vercel.app",
 ]
@@ -78,19 +80,34 @@ WSGI_APPLICATION = 'meri_panchayat.wsgi.application'
 
 import os
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_DATABASE"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-        "HOST": os.environ.get("POSTGRES_HOST"),
-        "PORT": "5432",
-        "OPTIONS": {
-            "sslmode": "require",
-        },
+import os
+
+if os.environ.get("POSTGRES_HOST"):
+
+    # Vercel / Production → PostgreSQL
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.environ.get("POSTGRES_DATABASE"),
+            "USER": os.environ.get("POSTGRES_USER"),
+            "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+            "HOST": os.environ.get("POSTGRES_HOST"),
+            "PORT": "5432",
+            "OPTIONS": {
+                "sslmode": "require",
+            },
+        }
     }
-}
+
+else:
+
+    # Local Development → SQLite
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation
@@ -149,3 +166,7 @@ MAILERS = {
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/dashboard/"
+LOGOUT_REDIRECT_URL = "/"
