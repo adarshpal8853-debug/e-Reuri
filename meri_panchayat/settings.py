@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "e-reuri.vercel.app",
+    ".vercel.app",
 ]
 
 
