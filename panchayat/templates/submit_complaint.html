@@ -1,0 +1,350 @@
+```html
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Submit Complaint | Meri Panchayat</title>
+
+    <link rel="stylesheet" href="{% static 'panchayat/style.css' %}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="logo-icon">🏛️</div>
+
+        <div>
+            <h2>Meri Panchayat</h2>
+            <span>Gram Panchayat Reuri</span>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#services">Services</a>
+        <a href="{% url 'submit_complaint' %}">Submit Complaint</a>
+        <a href="{% url 'track_complaint' %}">Track Complaint</a>
+        <a href="/#contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<!-- ================= PAGE HEADER ================= -->
+
+<section class="complaint-header">
+
+    <div class="complaint-header-content">
+
+        <p class="welcome">CITIZEN SUPPORT</p>
+
+        <h1>Submit Your Complaint</h1>
+
+        <p>
+            Tell us about a problem in your village and
+            help improve Panchayat services.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COMPLAINT FORM ================= -->
+
+<section class="complaint-section">
+
+    <div class="complaint-container">
+
+        <div class="complaint-form-card">
+
+            <div class="form-heading">
+
+                <div class="form-icon">
+                    📝
+                </div>
+
+                <div>
+                    <h2>Complaint Details</h2>
+
+                    <p>
+                        Please provide accurate information
+                        about your problem.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form method="POST"
+                  enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+
+                <!-- Category -->
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Complaint Category
+                    </label>
+
+                    <select
+                        name="category"
+                        id="category"
+                        required>
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option value="ROAD">
+                            Road
+                        </option>
+
+                        <option value="WATER">
+                            Water Supply
+                        </option>
+
+                        <option value="LIGHT">
+                            Street Light
+                        </option>
+
+                        <option value="SANITATION">
+                            Sanitation
+                        </option>
+
+                        <option value="DRAINAGE">
+                            Drainage
+                        </option>
+
+                        <option value="ELECTRICITY">
+                            Electricity
+                        </option>
+
+                        <option value="EDUCATION">
+                            Education
+                        </option>
+
+                        <option value="HEALTH">
+                            Health
+                        </option>
+
+                        <option value="SCHEME">
+                            Government Scheme
+                        </option>
+
+                        <option value="OTHER">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Subject -->
+
+                <div class="form-group">
+
+                    <label for="subject">
+                        Complaint Subject
+                    </label>
+
+                    <input
+                        type="text"
+                        name="subject"
+                        id="subject"
+                        placeholder="Example: Street light is not working"
+                        required>
+
+                </div>
+
+
+                <!-- Description -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Describe Your Problem
+                    </label>
+
+                    <textarea
+                        name="description"
+                        id="description"
+                        rows="6"
+                        placeholder="Explain what happened and where the problem is located..."
+                        required></textarea>
+
+                </div>
+
+
+                <!-- Location -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Problem Location
+                    </label>
+
+                    <input
+                        type="text"
+                        name="location"
+                        id="location"
+                        placeholder="Example: Main Road, Reuri"
+                        required>
+
+                </div>
+
+
+                <!-- Image -->
+
+                <div class="upload-box">
+
+                    <div class="upload-icon">
+                        📷
+                    </div>
+
+                    <h3>Add Photos</h3>
+
+                    <p>
+                        Upload photos related to your complaint.
+                    </p>
+
+                    <label class="file-label">
+
+                        Choose Photos
+
+                        <input
+                            type="file"
+                            name="images"
+                            accept="image/png,image/jpeg,image/webp"
+                            multiple>
+
+                    </label>
+
+                    <small>
+                        JPG, PNG or WEBP images
+                    </small>
+
+                </div>
+
+
+                <!-- Important -->
+
+                <div class="complaint-info">
+
+                    <span>ℹ️</span>
+
+                    <p>
+                        After submitting your complaint, you will
+                        receive a unique Complaint ID. Save this ID
+                        because you can use it later to track your complaint.
+                    </p>
+
+                </div>
+
+
+                <!-- Buttons -->
+
+                <div class="form-actions">
+
+                    <a href="/" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="submit-btn">
+
+                        Submit Complaint
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- ================= SIDE INFO ================= -->
+
+        <div class="complaint-side">
+
+            <div class="side-card">
+
+                <div class="side-icon">
+                    🔎
+                </div>
+
+                <h3>Already submitted?</h3>
+
+                <p>
+                    Check the current status of your complaint
+                    using your Complaint ID.
+                </p>
+
+                <a
+                    href="{% url 'track_complaint' %}"
+                    class="track-btn">
+
+                    Track Complaint →
+
+                </a>
+
+            </div>
+
+
+            <div class="side-card">
+
+                <div class="side-icon">
+                    🏛️
+                </div>
+
+                <h3>Panchayat Response</h3>
+
+                <p>
+                    Your complaint will be reviewed by the
+                    Panchayat administration and its status
+                    will be updated regularly.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>Meri Panchayat</h3>
+
+    <p>
+        Gram Panchayat Reuri
+    </p>
+
+    <p class="copyright">
+        © 2026 Meri Panchayat. All Rights Reserved.
+        @ Adarsh Pal
+    </p>
+
+</footer>
+
+</body>
+</html>

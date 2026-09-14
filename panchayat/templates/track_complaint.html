@@ -1,0 +1,923 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Track Complaint | Meri Panchayat</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 78px;
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #fff7ed;
+
+            border-radius: 10px;
+
+            font-size: 25px;
+        }
+
+        .logo h2 {
+            color: #c2410c;
+            font-size: 21px;
+        }
+
+        .logo span {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ea580c;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .page-header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7ed,
+                    #ffffff 55%,
+                    #eff6ff
+                );
+
+            padding: 70px 20px 55px;
+
+            text-align: center;
+        }
+
+        .page-header .tag {
+            color: #ea580c;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+        .page-header h1 {
+            color: #1e3a8a;
+
+            font-size: 45px;
+
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #64748b;
+
+            font-size: 17px;
+
+            max-width: 650px;
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           MAIN TRACK SECTION
+        ========================= */
+
+        .track-section {
+            padding: 65px 20px;
+        }
+
+        .track-container {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            padding: 45px;
+
+            box-shadow:
+                0 10px 35px rgba(15, 23, 42, 0.08);
+
+            border: 1px solid #e2e8f0;
+        }
+
+        .track-title {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .track-title .icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #fff7ed;
+
+            border-radius: 50%;
+
+            font-size: 28px;
+        }
+
+        .track-title h2 {
+            color: #1e3a8a;
+
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+        .track-title p {
+            color: #64748b;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .track-form {
+            max-width: 650px;
+
+            margin: auto;
+        }
+
+        .form-label {
+            display: block;
+
+            color: #334155;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            margin-bottom: 9px;
+        }
+
+        .input-group {
+            display: flex;
+
+            gap: 12px;
+        }
+
+        .complaint-input {
+            flex: 1;
+
+            height: 52px;
+
+            padding: 0 16px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        .complaint-input:focus {
+            border-color: #ea580c;
+
+            box-shadow:
+                0 0 0 3px rgba(234,88,12,0.12);
+        }
+
+        .track-btn {
+            height: 52px;
+
+            padding: 0 25px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #ea580c;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .track-btn:hover {
+            background: #c2410c;
+
+            transform: translateY(-1px);
+        }
+
+        .example {
+            margin-top: 9px;
+
+            color: #94a3b8;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================= */
+
+        .result-card {
+            max-width: 700px;
+
+            margin: 40px auto 0;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            background: #ffffff;
+        }
+
+        .result-header {
+            background: #1e3a8a;
+
+            color: white;
+
+            padding: 20px 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .result-header h3 {
+            font-size: 19px;
+        }
+
+        .status {
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            background: white;
+
+            color: #1e3a8a;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+        .result-body {
+            padding: 25px;
+        }
+
+        .result-row {
+            display: grid;
+
+            grid-template-columns: 160px 1fr;
+
+            gap: 15px;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            color: #64748b;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+        .result-value {
+            color: #1e293b;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           INFORMATION
+        ========================= */
+
+        .info-section {
+            padding: 10px 20px 70px;
+        }
+
+        .info-container {
+            max-width: 900px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .info-card {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border: 1px solid #e2e8f0;
+
+            text-align: center;
+        }
+
+        .info-card .info-icon {
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+        .info-card h3 {
+            color: #1e3a8a;
+
+            font-size: 17px;
+
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0f172a;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px 20px;
+        }
+
+        footer h3 {
+            color: #fb923c;
+
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            color: #cbd5e1;
+
+            font-size: 14px;
+        }
+
+        .copyright {
+            margin-top: 15px;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .track-container {
+                padding: 30px 20px;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .track-btn {
+                width: 100%;
+            }
+
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .page-header {
+                padding: 50px 15px;
+            }
+
+            .page-header h1 {
+                font-size: 30px;
+            }
+
+            .track-section {
+                padding: 40px 12px;
+            }
+
+            .result-row {
+                grid-template-columns: 1fr;
+                gap: 3px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🏛️
+        </div>
+
+        <div>
+            <h2>Meri Panchayat</h2>
+            <span>Gram Panchayat Reuri</span>
+        </div>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="/#about">About</a>
+
+        <a href="/#services">Services</a>
+
+        <a href="{% url 'track_complaint' %}">
+            Track Complaint
+        </a>
+
+        <a href="/#contact">Contact</a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     PAGE HEADER
+========================= -->
+
+<section class="page-header">
+
+    <p class="tag">
+        CITIZEN SUPPORT
+    </p>
+
+    <h1>
+        Track Your Complaint
+    </h1>
+
+    <p>
+        Enter your Complaint ID to check the
+        latest status and response from
+        Gram Panchayat Reuri.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     TRACK FORM
+========================= -->
+
+<section class="track-section">
+
+    <div class="track-container">
+
+
+        <div class="track-title">
+
+            <div class="icon">
+                🔎
+            </div>
+
+            <h2>
+                Check Complaint Status
+            </h2>
+
+            <p>
+                Enter the Complaint ID you received
+                after submitting your complaint.
+            </p>
+
+        </div>
+
+
+        <form
+            method="POST"
+            action="{% url 'track_complaint' %}"
+            class="track-form"
+        >
+
+            {% csrf_token %}
+
+
+            <label class="form-label">
+                Complaint ID
+            </label>
+
+
+            <div class="input-group">
+
+                <input
+                    type="text"
+                    name="complaint_id"
+                    class="complaint-input"
+                    placeholder="Enter Complaint ID"
+                    value="{{ complaint_id|default:'' }}"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="track-btn"
+                >
+                    🔎 Track Complaint
+                </button>
+
+            </div>
+
+
+            <p class="example">
+                Example: GP-2026-00001
+            </p>
+
+        </form>
+
+
+
+        {% if error %}
+
+        <div style="
+            margin-top:25px;
+            padding:15px;
+            background:#fef2f2;
+            border:1px solid #fecaca;
+            color:#b91c1c;
+            border-radius:8px;
+            text-align:center;
+        ">
+
+            ⚠️ {{ error }}
+
+        </div>
+
+        {% endif %}
+
+
+
+        {% if complaint %}
+
+        <!-- =========================
+             COMPLAINT RESULT
+        ========================= -->
+
+        <div class="result-card">
+
+            <div class="result-header">
+
+                <h3>
+                    Complaint Details
+                </h3>
+
+                <span class="status">
+                    {{ complaint.get_status_display }}
+                </span>
+
+            </div>
+
+
+            <div class="result-body">
+
+                <div class="result-row">
+
+                    <div class="result-label">
+                        Complaint ID
+                    </div>
+
+                    <div class="result-value">
+                        <strong>
+                            {{ complaint.complaint_id }}
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <div class="result-label">
+                        Category
+                    </div>
+
+                    <div class="result-value">
+                        {{ complaint.get_category_display }}
+                    </div>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <div class="result-label">
+                        Subject
+                    </div>
+
+                    <div class="result-value">
+                        {{ complaint.subject }}
+                    </div>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <div class="result-label">
+                        Location
+                    </div>
+
+                    <div class="result-value">
+                        {{ complaint.location }}
+                    </div>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <div class="result-label">
+                        Submitted On
+                    </div>
+
+                    <div class="result-value">
+                        {{ complaint.created_at|date:"d M Y, h:i A" }}
+                    </div>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <div class="result-label">
+                        Last Updated
+                    </div>
+
+                    <div class="result-value">
+                        {{ complaint.updated_at|date:"d M Y, h:i A" }}
+                    </div>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <div class="result-label">
+                        Panchayat Response
+                    </div>
+
+                    <div class="result-value">
+
+                        {% if complaint.admin_response %}
+
+                            {{ complaint.admin_response }}
+
+                        {% else %}
+
+                            <span style="color:#94a3b8;">
+                                No response has been added yet.
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
+
+<section class="info-section">
+
+    <div class="info-container">
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                📝
+            </div>
+
+            <h3>
+                Submit Complaint
+            </h3>
+
+            <p>
+                Report problems related to roads,
+                water, sanitation, electricity and
+                other Panchayat services.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                🔎
+            </div>
+
+            <h3>
+                Track Status
+            </h3>
+
+            <p>
+                Use your Complaint ID anytime to
+                check the latest status of your
+                complaint.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Panchayat Response
+            </h3>
+
+            <p>
+                Your complaint will be reviewed by
+                the Panchayat administration and
+                updated accordingly.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h3>
+        Meri Panchayat
+    </h3>
+
+    <p>
+        Gram Panchayat Reuri
+    </p>
+
+    <p class="copyright">
+        © 2026 Meri Panchayat.
+        All Rights Reserved. @ Adarsh Pal
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
+

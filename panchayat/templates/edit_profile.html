@@ -1,0 +1,283 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Profile | Meri Panchayat</title>
+
+    <link rel="stylesheet"
+          href="{% static 'panchayat/dashboard.css' %}">
+
+    <style>
+
+        .edit-profile-card {
+            max-width: 700px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .edit-profile-card h2 {
+            margin-bottom: 8px;
+        }
+
+        .edit-profile-card .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1e293b;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #2563eb;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .save-btn {
+            border: none;
+            padding: 13px 24px;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .cancel-btn {
+            padding: 13px 24px;
+            border-radius: 10px;
+            background: #f1f5f9;
+            color: #334155;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .errorlist {
+            color: #dc2626;
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🏛️
+            </div>
+
+            <div>
+
+                <h2>Meri Panchayat</h2>
+
+                <span>Citizen Portal</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-right">
+
+            <a href="{% url 'dashboard' %}">
+                Dashboard
+            </a>
+
+            <a href="{% url 'profile' %}"
+               class="active">
+                Profile
+            </a>
+
+            <a href="{% url 'submit_complaint' %}">
+                Submit Complaint
+            </a>
+
+            <a href="{% url 'track_complaint' %}">
+                Track Complaint
+            </a>
+
+            <a href="{% url 'citizen_logout' %}"
+               class="logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-container">
+
+        <section class="welcome-box">
+
+            <div>
+
+                <p class="small-title">
+                    CITIZEN PROFILE
+                </p>
+
+                <h1>
+                    Edit Profile
+                </h1>
+
+                <p>
+                    Update your personal information.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EDIT FORM -->
+
+        <div class="edit-profile-card">
+
+            <h2>
+                👤 Personal Information
+            </h2>
+
+            <p class="subtitle">
+                Keep your information up to date.
+            </p>
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                <div class="form-group">
+
+                    <label for="{{ form.full_name.id_for_label }}">
+                        Full Name
+                    </label>
+
+                    {{ form.full_name }}
+
+                    {{ form.full_name.errors }}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="{{ form.mobile.id_for_label }}">
+                        Mobile Number
+                    </label>
+
+                    {{ form.mobile }}
+
+                    {{ form.mobile.errors }}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="{{ form.address.id_for_label }}">
+                        Address
+                    </label>
+
+                    {{ form.address }}
+
+                    {{ form.address.errors }}
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button type="submit"
+                            class="save-btn">
+                        💾 Save Changes
+                    </button>
+
+                    <a href="{% url 'profile' %}"
+                       class="cancel-btn">
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+    <a
+                href="/"
+                class="btn primary">
+
+                Back to Home
+
+            </a>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            Meri Panchayat
+        </h3>
+
+        <p>
+            Citizen Complaint Management Portal
+        </p>
+
+        <p class="copyright">
+            © 2026 Meri Panchayat. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
+

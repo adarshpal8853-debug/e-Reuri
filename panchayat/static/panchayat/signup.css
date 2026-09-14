@@ -1,0 +1,718 @@
+
+/* =========================================
+   MERI PANCHAYAT - SIGNUP
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed 0%,
+            #f8fafc 48%,
+            #eff6ff 100%
+        );
+
+    color: #1e293b;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    height: 78px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 3px 18px rgba(15, 23, 42, 0.06);
+}
+
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+}
+
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff7ed;
+
+    border: 1px solid #fed7aa;
+
+    border-radius: 11px;
+
+    font-size: 24px;
+}
+
+
+.brand-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.brand-text strong {
+    color: #c2410c;
+
+    font-size: 20px;
+}
+
+
+.brand-text span {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+.nav-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+.login-link {
+    text-decoration: none;
+
+    color: #1e3a8a;
+
+    font-weight: bold;
+
+    border: 1px solid #1e3a8a;
+
+    padding: 9px 17px;
+
+    border-radius: 7px;
+
+    transition: 0.25s;
+}
+
+
+.login-link:hover {
+    background: #1e3a8a;
+
+    color: white;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+    flex: 1;
+
+    padding: 55px 20px;
+}
+
+
+.signup-card {
+    width: 100%;
+
+    max-width: 1050px;
+
+    min-height: 620px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 20px 55px rgba(15, 23, 42, 0.10);
+}
+
+
+/* =========================================
+   LEFT INTRO
+========================================= */
+
+.intro {
+    padding: 55px 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1e3a8a,
+            #172554
+        );
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.intro::after {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    right: -100px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    border: 45px solid rgba(255,255,255,0.05);
+}
+
+
+.intro-badge {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.10);
+
+    border: 1px solid rgba(255,255,255,0.16);
+
+    color: #fed7aa;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+
+.intro h1 {
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+}
+
+
+.intro > p {
+    color: #dbeafe;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 38px;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+
+.feature {
+    display: flex;
+
+    gap: 15px;
+
+    align-items: flex-start;
+}
+
+
+.feature-icon {
+    min-width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.10);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 10px;
+
+    font-size: 20px;
+}
+
+
+.feature h3 {
+    font-size: 15px;
+
+    margin-bottom: 3px;
+}
+
+
+.feature p {
+    color: #bfdbfe;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   FORM AREA
+========================================= */
+
+.form-area {
+    padding: 50px 55px;
+
+    background: white;
+}
+
+
+.form-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 30px;
+}
+
+
+.form-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff7ed;
+
+    border: 1px solid #fed7aa;
+
+    border-radius: 10px;
+
+    font-size: 22px;
+}
+
+
+.form-heading h2 {
+    color: #1e3a8a;
+
+    font-size: 25px;
+}
+
+
+.form-heading p {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MESSAGES
+========================================= */
+
+.messages {
+    margin-bottom: 20px;
+}
+
+
+.message {
+    padding: 12px 15px;
+
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    color: #b91c1c;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+.input-box {
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 13px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    transition: 0.25s;
+
+    background: white;
+}
+
+
+.input-box:focus-within {
+    border-color: #ea580c;
+
+    box-shadow:
+        0 0 0 3px rgba(234,88,12,0.10);
+}
+
+
+.input-box > span {
+    font-size: 16px;
+
+    opacity: 0.7;
+}
+
+
+.input-box input {
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #1e293b;
+
+    background: transparent;
+}
+
+
+.input-box input::placeholder {
+    color: #94a3b8;
+}
+
+
+.form-group small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+
+.show-password {
+    border: none;
+
+    background: transparent;
+
+    color: #1e3a8a;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   TERMS
+========================================= */
+
+.terms {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin: 7px 0 22px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+
+.terms input {
+    margin-top: 3px;
+
+    accent-color: #ea580c;
+}
+
+
+/* =========================================
+   SIGNUP BUTTON
+========================================= */
+
+.signup-btn {
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ea580c;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 7px 18px rgba(234,88,12,0.20);
+}
+
+
+.signup-btn span {
+    font-size: 18px;
+
+    transition: 0.25s;
+}
+
+
+.signup-btn:hover {
+    background: #c2410c;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(234,88,12,0.25);
+}
+
+
+.signup-btn:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   BOTTOM LOGIN
+========================================= */
+
+.bottom-login {
+    text-align: center;
+
+    margin-top: 22px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+.bottom-login a {
+    color: #1e3a8a;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+.bottom-login a:hover {
+    color: #ea580c;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: #0f172a;
+
+    color: #cbd5e1;
+
+    text-align: center;
+
+    padding: 22px;
+
+    font-size: 12px;
+}
+
+
+footer span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .signup-card {
+        grid-template-columns: 1fr;
+    }
+
+    .intro {
+        padding: 40px 30px;
+    }
+
+    .intro h1 {
+        font-size: 32px;
+    }
+
+    .features {
+        gap: 18px;
+    }
+
+    .form-area {
+        padding: 40px 30px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+
+        height: 70px;
+    }
+
+    .nav-right > span {
+        display: none;
+    }
+
+    .brand-text strong {
+        font-size: 17px;
+    }
+
+    .page {
+        padding: 25px 12px;
+    }
+
+    .signup-card {
+        border-radius: 14px;
+    }
+
+    .intro {
+        padding: 35px 25px;
+    }
+
+    .form-area {
+        padding: 35px 22px;
+    }
+
+}
+

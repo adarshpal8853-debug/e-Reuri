@@ -1,0 +1,2025 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | Meri Panchayat</title>
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1f2937;
+            background: #f8fafc;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            min-height: 78px;
+            background: rgba(255, 255, 255, 0.98);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 7%;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: 12px;
+            font-size: 25px;
+        }
+
+        .logo h2 {
+            color: #c2410c;
+            font-size: 21px;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+        }
+
+        .nav-links a {
+            color: #334155;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 0;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: #ea580c;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ea580c;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .page-hero {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 8%;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7ed 0%,
+                    #ffffff 50%,
+                    #eff6ff 100%
+                );
+        }
+
+        .hero-pattern {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            right: -190px;
+            top: -190px;
+            border-radius: 50%;
+            background: rgba(234, 88, 12, 0.06);
+        }
+
+        .hero-pattern::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            left: -600px;
+            top: 360px;
+            border-radius: 50%;
+            background: rgba(30, 58, 138, 0.05);
+        }
+
+        .page-hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            background: white;
+            border: 1px solid #fed7aa;
+            border-radius: 50px;
+            color: #c2410c;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .page-hero-content p {
+            color: #ea580c;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .page-hero-content h1 {
+            color: #1e3a8a;
+            font-size: 55px;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .page-hero-content > span {
+            color: #64748b;
+            font-size: 18px;
+            display: block;
+            max-width: 720px;
+            margin: auto;
+        }
+
+        .hero-line {
+            width: 75px;
+            height: 4px;
+            background: #ea580c;
+            margin: 27px auto 0;
+            border-radius: 10px;
+        }
+
+
+        /* =========================
+           COMMON SECTION
+        ========================= */
+
+        .section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 55px;
+        }
+
+        .section-title p {
+            color: #ea580c;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .section-title h2 {
+            color: #1e3a8a;
+            font-size: 37px;
+            margin-bottom: 12px;
+        }
+
+        .section-title span {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           ABOUT INTRO
+        ========================= */
+
+        .about-container {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .about-content {
+            background: white;
+            padding: 45px;
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        .content-label {
+            color: #ea580c;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .about-content h2 {
+            color: #1e3a8a;
+            margin: 8px 0 24px;
+            font-size: 29px;
+        }
+
+        .about-content p {
+            color: #475569;
+            font-size: 15.5px;
+            margin-bottom: 18px;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-highlight {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .highlight-box {
+            background: white;
+            padding: 27px;
+            border-radius: 17px;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #ea580c;
+            box-shadow: 0 7px 25px rgba(15, 23, 42, 0.06);
+            transition: 0.3s;
+        }
+
+        .highlight-box:hover {
+            transform: translateX(7px);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.10);
+        }
+
+        .highlight-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff7ed;
+            border-radius: 12px;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box h3 {
+            color: #1e3a8a;
+            margin-bottom: 7px;
+            font-size: 20px;
+        }
+
+        .highlight-box p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           PANCHAYAT OVERVIEW
+        ========================= */
+
+        .overview-section {
+            padding: 90px 8%;
+            background: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .overview-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .overview-card {
+            background: white;
+            padding: 35px 28px;
+            border-radius: 17px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 25px rgba(15, 23, 42, 0.05);
+            transition: 0.3s;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 14px 32px rgba(15, 23, 42, 0.10);
+        }
+
+        .overview-icon {
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff7ed;
+            border-radius: 14px;
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .overview-card h3 {
+            color: #1e3a8a;
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .overview-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           VISION & MISSION
+        ========================= */
+
+        .vision-section {
+            padding: 90px 8%;
+            background: white;
+        }
+
+        .vision-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .vision-card {
+            background: #f8fafc;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-8px);
+            background: white;
+            border-color: #fed7aa;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.10);
+        }
+
+        .vision-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff7ed;
+            border-radius: 50%;
+            font-size: 34px;
+        }
+
+        .vision-card h3 {
+            color: #1e3a8a;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .vision-card p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           VALUES
+        ========================= */
+
+        .values-section {
+            padding: 90px 8%;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .values-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 32px 20px;
+            text-align: center;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+        }
+
+        .value-card span {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .value-card h3 {
+            color: #1e3a8a;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .value-card p {
+            color: #64748b;
+            font-size: 13.5px;
+        }
+
+
+        /* =========================
+           RESPONSIBILITIES
+        ========================= */
+
+        .responsibility-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .responsibility-card {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+
+        .responsibility-card:hover {
+            transform: translateY(-7px);
+            border-color: #fed7aa;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09);
+        }
+
+        .responsibility-card span {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            background: #fff7ed;
+            border-radius: 12px;
+            font-size: 30px;
+        }
+
+        .responsibility-card h3 {
+            color: #1e3a8a;
+            font-size: 17px;
+            margin-bottom: 9px;
+        }
+
+        .responsibility-card p {
+            color: #64748b;
+            font-size: 13.5px;
+        }
+
+
+        /* =========================
+           CITIZEN PARTICIPATION
+        ========================= */
+
+        .participation-section {
+            padding: 90px 8%;
+            background: white;
+        }
+
+        .participation-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .participation-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 38px;
+        }
+
+        .participation-box h3 {
+            color: #1e3a8a;
+            font-size: 25px;
+            margin-bottom: 14px;
+        }
+
+        .participation-box p {
+            color: #64748b;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .participation-list {
+            list-style: none;
+        }
+
+        .participation-list li {
+            padding: 10px 0;
+            color: #475569;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .participation-list li:last-child {
+            border-bottom: none;
+        }
+
+        .participation-list li::before {
+            content: "✓";
+            color: #ea580c;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+
+        /* =========================
+           COMMUNITY MESSAGE
+        ========================= */
+
+        .community-section {
+            padding: 75px 8%;
+            background: #fff7ed;
+            border-top: 1px solid #fed7aa;
+            border-bottom: 1px solid #fed7aa;
+        }
+
+        .community-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .community-icon {
+            min-width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            font-size: 38px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .community-content p {
+            color: #ea580c;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .community-content h2 {
+            color: #1e3a8a;
+            font-size: 30px;
+            margin: 5px 0 8px;
+        }
+
+        .community-content span {
+            color: #64748b;
+            display: block;
+            max-width: 850px;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           CONTACT CTA
+        ========================= */
+
+        .contact {
+            padding: 80px 8%;
+            background:
+                linear-gradient(
+                    135deg,
+                    #1e3a8a,
+                    #172554
+                );
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .contact p {
+            color: #fb923c;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .contact h2 {
+            font-size: 38px;
+            margin: 8px 0;
+        }
+
+        .contact span {
+            color: #dbeafe;
+            display: block;
+            max-width: 700px;
+            margin-bottom: 28px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 14px 27px;
+            background: #ea580c;
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #c2410c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 48px 8% 20px;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 13px;
+        }
+
+        .footer-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1e293b;
+            border-radius: 10px;
+            font-size: 21px;
+        }
+
+        .footer-logo h3 {
+            color: #fb923c;
+            font-size: 21px;
+        }
+
+        .footer-logo p {
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        .footer-description {
+            color: #cbd5e1;
+            font-size: 14px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 27px 0;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fb923c;
+        }
+
+        .copyright {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-grid,
+            .vision-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .values-grid,
+            .responsibility-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .participation-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                min-height: 70px;
+                padding: 10px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo h2 {
+                font-size: 18px;
+            }
+
+            .logo span {
+                font-size: 10px;
+            }
+
+            .logo-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 21px;
+            }
+
+
+            /* HERO */
+
+            .page-hero {
+                min-height: 320px;
+                padding: 60px 6%;
+            }
+
+            .hero-badge {
+                font-size: 9px;
+            }
+
+            .page-hero-content h1 {
+                font-size: 35px;
+            }
+
+            .page-hero-content > span {
+                font-size: 15px;
+            }
+
+
+            /* SECTIONS */
+
+            .section,
+            .overview-section,
+            .vision-section,
+            .values-section,
+            .participation-section {
+                padding: 65px 6%;
+            }
+
+            .section-title {
+                margin-bottom: 38px;
+            }
+
+            .section-title h2 {
+                font-size: 29px;
+            }
+
+
+            /* ABOUT */
+
+            .about-content {
+                padding: 30px 23px;
+            }
+
+            .about-content h2 {
+                font-size: 25px;
+            }
+
+            .about-content p {
+                font-size: 14.5px;
+            }
+
+
+            /* GRIDS */
+
+            .overview-grid,
+            .vision-grid,
+            .values-grid,
+            .responsibility-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            /* PARTICIPATION */
+
+            .participation-box {
+                padding: 28px 22px;
+            }
+
+            .participation-box h3 {
+                font-size: 22px;
+            }
+
+
+            /* COMMUNITY */
+
+            .community-section {
+                padding: 58px 6%;
+            }
+
+            .community-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .community-content h2 {
+                font-size: 26px;
+            }
+
+
+            /* CONTACT */
+
+            .contact {
+                padding: 65px 6%;
+            }
+
+            .contact h2 {
+                font-size: 30px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding: 38px 6% 18px;
+            }
+
+            .footer-links {
+                gap: 13px 20px;
+            }
+        }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 400px) {
+
+            .page-hero-content h1 {
+                font-size: 30px;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .about-content {
+                padding: 25px 18px;
+            }
+
+            .vision-card {
+                padding: 30px 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🏛️
+            </div>
+
+            <div>
+                <h2>Meri Panchayat</h2>
+                <span>Gram Panchayat Reuri</span>
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <div class="nav-links">
+
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'services' %}">Services</a>
+    <a href="{% url 'schemes' %}">Schemes</a>
+    <a href="{% url 'members' %}">Members</a>
+    <a href="{% url 'development' %}">Development</a>
+
+    <a href="{% url 'funds' %}">
+        💰 Funds
+    </a>
+
+    <a href="{% url 'notices' %}">Notices</a>
+    <a href="{% url 'contact' %}">Contact</a>
+
+</div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="page-hero">
+
+        <div class="hero-pattern"></div>
+
+        <div class="page-hero-content">
+
+            <div class="hero-badge">
+                🏛️ OFFICIAL PANCHAYAT WEBSITE
+            </div>
+
+            <p>
+                ABOUT US
+            </p>
+
+            <h1>
+                Gram Panchayat Reuri
+            </h1>
+
+            <span>
+                Working together for a developed, clean,
+                transparent and prosperous village.
+            </span>
+
+            <div class="hero-line"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT INTRO
+    ========================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <p>
+                WHO WE ARE
+            </p>
+
+            <h2>
+                About Gram Panchayat Reuri
+            </h2>
+
+            <span>
+                Know more about our Panchayat, our people,
+                our responsibilities and our commitment
+                towards village development.
+            </span>
+
+        </div>
+
+
+        <div class="about-container">
+
+
+            <div class="about-content">
+
+                <span class="content-label">
+                    OUR PANCHAYAT
+                </span>
+
+                <h2>
+                    Welcome to Gram Panchayat Reuri
+                </h2>
+
+                <p>
+                    Gram Panchayat Reuri is a local self-government
+                    institution dedicated to the overall development,
+                    welfare and progress of the village community.
+                </p>
+
+                <p>
+                    The Panchayat works closely with citizens to
+                    understand local needs and provide essential
+                    public services. Our focus includes village
+                    infrastructure, sanitation, cleanliness,
+                    drinking water, roads and other basic facilities.
+                </p>
+
+                <p>
+                    The Panchayat also supports the implementation
+                    of various government schemes and welfare
+                    programmes so that eligible citizens can receive
+                    the benefits and opportunities available to them.
+                </p>
+
+                <p>
+                    Transparency, accountability and citizen
+                    participation are important parts of effective
+                    local governance. Residents are encouraged to
+                    participate in Panchayat activities and contribute
+                    their suggestions towards village development.
+                </p>
+
+                <p>
+                    With collective efforts, responsible administration
+                    and active community participation, Gram Panchayat
+                    Reuri aims to create a cleaner, safer, inclusive
+                    and progressive village for present and future
+                    generations.
+                </p>
+
+            </div>
+
+
+
+            <div class="about-highlight">
+
+
+                <div class="highlight-box">
+
+                    <div class="highlight-icon">
+                        🏡
+                    </div>
+
+                    <h3>
+                        Our Village
+                    </h3>
+
+                    <p>
+                        A community working together for the
+                        development, prosperity and better future
+                        of Gram Panchayat Reuri.
+                    </p>
+
+                </div>
+
+
+                <div class="highlight-box">
+
+                    <div class="highlight-icon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        Our Community
+                    </h3>
+
+                    <p>
+                        Encouraging cooperation, participation,
+                        social responsibility and active involvement
+                        of citizens.
+                    </p>
+
+                </div>
+
+
+                <div class="highlight-box">
+
+                    <div class="highlight-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Our Development
+                    </h3>
+
+                    <p>
+                        Focusing on sustainable development,
+                        cleanliness, infrastructure and public
+                        welfare.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PANCHAYAT OVERVIEW
+    ========================= -->
+
+    <section class="overview-section">
+
+        <div class="section-title">
+
+            <p>
+                OUR FOCUS
+            </p>
+
+            <h2>
+                Panchayat at a Glance
+            </h2>
+
+            <span>
+                Key areas that guide the work and development
+                activities of Gram Panchayat Reuri.
+            </span>
+
+        </div>
+
+
+        <div class="overview-grid">
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    🏘️
+                </div>
+
+                <h3>
+                    Local Governance
+                </h3>
+
+                <p>
+                    Promoting effective local administration
+                    and ensuring that citizens can participate
+                    in village-level decision making.
+                </p>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    🛣️
+                </div>
+
+                <h3>
+                    Infrastructure
+                </h3>
+
+                <p>
+                    Supporting improvement of roads, public
+                    spaces, drainage systems and other essential
+                    village infrastructure.
+                </p>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    💧
+                </div>
+
+                <h3>
+                    Basic Services
+                </h3>
+
+                <p>
+                    Working towards better sanitation,
+                    drinking water, cleanliness and essential
+                    public facilities.
+                </p>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    📋
+                </div>
+
+                <h3>
+                    Welfare Schemes
+                </h3>
+
+                <p>
+                    Supporting awareness and implementation
+                    of relevant government welfare schemes
+                    and development programmes.
+                </p>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    🌳
+                </div>
+
+                <h3>
+                    Environment
+                </h3>
+
+                <p>
+                    Promoting environmental awareness,
+                    plantation, cleanliness and sustainable
+                    village development.
+                </p>
+
+            </div>
+
+
+            <div class="overview-card">
+
+                <div class="overview-icon">
+                    👥
+                </div>
+
+                <h3>
+                    Citizen Support
+                </h3>
+
+                <p>
+                    Helping residents access information,
+                    services, notices and Panchayat-related
+                    assistance.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         VISION & MISSION
+    ========================= -->
+
+    <section class="vision-section">
+
+        <div class="section-title">
+
+            <p>
+                OUR PURPOSE
+            </p>
+
+            <h2>
+                Vision & Mission
+            </h2>
+
+            <span>
+                Our goals guide every effort towards better
+                governance and community development.
+            </span>
+
+        </div>
+
+
+        <div class="vision-grid">
+
+
+            <div class="vision-card">
+
+                <div class="vision-icon">
+                    👁️
+                </div>
+
+                <h3>
+                    Our Vision
+                </h3>
+
+                <p>
+                    To build a clean, developed, transparent
+                    and citizen-friendly Gram Panchayat where
+                    every resident has access to essential
+                    services, facilities and opportunities
+                    for a better quality of life.
+                </p>
+
+            </div>
+
+
+            <div class="vision-card">
+
+                <div class="vision-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Our Mission
+                </h3>
+
+                <p>
+                    To provide effective local governance,
+                    improve basic infrastructure, promote
+                    community participation and support the
+                    efficient implementation of government
+                    welfare schemes.
+                </p>
+
+            </div>
+
+
+            <div class="vision-card">
+
+                <div class="vision-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Our Commitment
+                </h3>
+
+                <p>
+                    We are committed to sustainable development,
+                    cleanliness, public welfare, transparency,
+                    accountability and creating a better future
+                    for every member of our village community.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CORE VALUES
+    ========================= -->
+
+    <section class="values-section">
+
+        <div class="section-title">
+
+            <p>
+                OUR VALUES
+            </p>
+
+            <h2>
+                Principles We Follow
+            </h2>
+
+            <span>
+                Strong values help create responsible,
+                transparent and citizen-focused governance.
+            </span>
+
+        </div>
+
+
+        <div class="values-grid">
+
+
+            <div class="value-card">
+
+                <span>
+                    🔍
+                </span>
+
+                <h3>
+                    Transparency
+                </h3>
+
+                <p>
+                    Keeping citizens informed about important
+                    Panchayat activities and public information.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <span>
+                    ⚖️
+                </span>
+
+                <h3>
+                    Accountability
+                </h3>
+
+                <p>
+                    Working responsibly towards public welfare
+                    and village development.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <span>
+                    🤝
+                </span>
+
+                <h3>
+                    Cooperation
+                </h3>
+
+                <p>
+                    Encouraging citizens and representatives
+                    to work together for common goals.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <span>
+                    ❤️
+                </span>
+
+                <h3>
+                    Public Welfare
+                </h3>
+
+                <p>
+                    Giving importance to the needs, welfare
+                    and quality of life of residents.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         RESPONSIBILITIES
+    ========================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <p>
+                WHAT WE DO
+            </p>
+
+            <h2>
+                Our Key Responsibilities
+            </h2>
+
+            <span>
+                Important areas where the Panchayat works
+                for the welfare and development of the village.
+            </span>
+
+        </div>
+
+
+        <div class="responsibility-grid">
+
+
+            <div class="responsibility-card">
+
+                <span>
+                    🏗️
+                </span>
+
+                <h3>
+                    Village Development
+                </h3>
+
+                <p>
+                    Supporting infrastructure development,
+                    roads, public spaces and development
+                    activities.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility-card">
+
+                <span>
+                    💧
+                </span>
+
+                <h3>
+                    Basic Facilities
+                </h3>
+
+                <p>
+                    Working towards better drinking water,
+                    sanitation, cleanliness and public facilities.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility-card">
+
+                <span>
+                    📋
+                </span>
+
+                <h3>
+                    Government Schemes
+                </h3>
+
+                <p>
+                    Helping eligible citizens understand
+                    relevant welfare schemes and programmes.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility-card">
+
+                <span>
+                    👥
+                </span>
+
+                <h3>
+                    Citizen Participation
+                </h3>
+
+                <p>
+                    Encouraging residents to participate in
+                    Gram Sabha and Panchayat activities.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility-card">
+
+                <span>
+                    🧹
+                </span>
+
+                <h3>
+                    Cleanliness
+                </h3>
+
+                <p>
+                    Promoting sanitation, cleanliness and
+                    awareness for a healthy environment.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility-card">
+
+                <span>
+                    🌳
+                </span>
+
+                <h3>
+                    Environment
+                </h3>
+
+                <p>
+                    Supporting plantation, environmental
+                    awareness and sustainable development.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility-card">
+
+                <span>
+                    🏥
+                </span>
+
+                <h3>
+                    Public Welfare
+                </h3>
+
+                <p>
+                    Supporting welfare initiatives and
+                    helping citizens connect with services.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility-card">
+
+                <span>
+                    📢
+                </span>
+
+                <h3>
+                    Public Information
+                </h3>
+
+                <p>
+                    Providing notices, announcements and
+                    important Panchayat updates.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CITIZEN PARTICIPATION
+    ========================= -->
+
+    <section class="participation-section">
+
+        <div class="section-title">
+
+            <p>
+                CITIZEN PARTICIPATION
+            </p>
+
+            <h2>
+                Together for a Better Village
+            </h2>
+
+            <span>
+                Development becomes stronger when citizens
+                actively participate in local governance.
+            </span>
+
+        </div>
+
+
+        <div class="participation-container">
+
+
+            <div class="participation-box">
+
+                <h3>
+                    Your Participation Matters
+                </h3>
+
+                <p>
+                    Residents can contribute to village development
+                    by sharing suggestions, reporting local issues,
+                    participating in Gram Sabha meetings and staying
+                    informed about Panchayat activities.
+                </p>
+
+                <ul class="participation-list">
+
+                    <li>
+                        Participate in Gram Sabha meetings
+                    </li>
+
+                    <li>
+                        Share useful suggestions
+                    </li>
+
+                    <li>
+                        Report local civic issues
+                    </li>
+
+                    <li>
+                        Stay informed about public notices
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="participation-box">
+
+                <h3>
+                    Responsible Citizenship
+                </h3>
+
+                <p>
+                    Every resident can contribute towards a cleaner,
+                    safer and more developed village by following
+                    civic responsibilities and supporting community
+                    initiatives.
+                </p>
+
+                <ul class="participation-list">
+
+                    <li>
+                        Keep public areas clean
+                    </li>
+
+                    <li>
+                        Protect village environment
+                    </li>
+
+                    <li>
+                        Support development initiatives
+                    </li>
+
+                    <li>
+                        Cooperate with local administration
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         COMMUNITY MESSAGE
+    ========================= -->
+
+    <section class="community-section">
+
+        <div class="community-content">
+
+            <div class="community-icon">
+                🤝
+            </div>
+
+            <div>
+
+                <p>
+                    TOGETHER WE CAN
+                </p>
+
+                <h2>
+                    Development Through Community Participation
+                </h2>
+
+                <span>
+                    A successful village is built through the
+                    combined efforts of its citizens, Panchayat
+                    representatives and administration. Your
+                    participation and suggestions help us
+                    understand local needs and improve village
+                    services.
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT CTA
+    ========================= -->
+
+    <section class="contact">
+
+        <div class="contact-content">
+
+            <p>
+                GET IN TOUCH
+            </p>
+
+            <h2>
+                Gram Panchayat Reuri
+            </h2>
+
+            <span>
+                For Panchayat-related information, services,
+                public notices and assistance, please contact
+                the Panchayat office.
+            </span>
+
+            <a href="/contact/" class="contact-btn">
+                Contact Us →
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div class="footer-logo">
+
+                <div class="footer-icon">
+                    🏛️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Meri Panchayat
+                    </h3>
+
+                    <p>
+                        Gram Panchayat Reuri
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p class="footer-description">
+
+                Official Digital Platform for Panchayat Information,
+                Public Notices, Services and Citizen Support.
+
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'about' %}">
+                    About
+                </a>
+
+                <a href="{% url 'services' %}">
+                    Services
+                </a>
+
+                <a href="{% url 'notices' %}">
+                    Notices
+                </a>
+
+                <a href="/gallery/">
+                    Gallery
+                </a>
+
+                <a href="/contact/">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Meri Panchayat Reuri.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

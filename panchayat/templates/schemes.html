@@ -1,0 +1,1584 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Government Schemes | Meri Panchayat</title>
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           TOP BAR
+        ========================= */
+
+        .top-bar {
+            background: #172554;
+            color: white;
+
+            padding: 8px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 13px;
+        }
+
+
+        .top-left,
+        .top-right {
+            display: flex;
+            gap: 20px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: white;
+
+            min-height: 78px;
+
+            padding: 0 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 12px;
+
+            background: #ff6a00;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+
+        .brand-text h2 {
+            color: #172554;
+
+            font-size: 20px;
+
+            line-height: 1.1;
+        }
+
+
+        .brand-text span {
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 6px;
+        }
+
+
+        .nav-links a {
+            color: #334155;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            padding: 10px 13px;
+
+            border-radius: 8px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .nav-links a:hover {
+            color: #ff6a00;
+
+            background: #fff7ed;
+        }
+
+
+        .nav-links .active {
+            color: #ff6a00;
+
+            background: #fff7ed;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #172554 0%,
+                    #1e3a8a 55%,
+                    #ff6a00 100%
+                );
+
+            color: white;
+
+            padding: 75px 7% 85px;
+
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            border: 60px solid rgba(255,255,255,0.05);
+
+            right: -120px;
+            top: -120px;
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.05);
+
+            left: -90px;
+            bottom: -100px;
+        }
+
+
+        .hero-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 7px 17px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.13);
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero h1 {
+            font-size: 46px;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+
+        .hero p {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #e2e8f0;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+            width: 86%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 65px 0;
+        }
+
+
+        /* =========================
+           SECTION HEADER
+        ========================= */
+
+        .section-header {
+            text-align: center;
+
+            margin-bottom: 42px;
+        }
+
+
+        .section-header span {
+            color: #ff6a00;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .section-header h2 {
+            color: #172554;
+
+            font-size: 32px;
+
+            margin: 8px 0;
+        }
+
+
+        .section-header p {
+            color: #64748b;
+
+            max-width: 680px;
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           SCHEME GRID
+        ========================= */
+
+        .scheme-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* =========================
+           SCHEME CARD
+        ========================= */
+
+        .scheme-card {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 17px;
+
+            padding: 30px 27px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: 0.3s ease;
+        }
+
+
+        .scheme-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #fed7aa;
+
+            box-shadow:
+                0 18px 45px rgba(15,23,42,0.10);
+        }
+
+
+        .scheme-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+            height: 4px;
+
+            background: #ff6a00;
+
+            left: 0;
+            bottom: 0;
+
+            transform: scaleX(0);
+
+            transition: 0.3s ease;
+        }
+
+
+        .scheme-card:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        /* =========================
+           SCHEME ICON
+        ========================= */
+
+        .scheme-icon {
+            width: 62px;
+            height: 62px;
+
+            border-radius: 14px;
+
+            background: #fff7ed;
+
+            color: #ff6a00;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .scheme-category {
+            display: inline-block;
+
+            background: #eff6ff;
+
+            color: #1e3a8a;
+
+            padding: 5px 11px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.6px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .scheme-card h3 {
+            color: #172554;
+
+            font-size: 21px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .scheme-card p {
+            color: #64748b;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .scheme-link {
+            color: #ff6a00;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            display: inline-block;
+
+            transition: 0.2s ease;
+        }
+
+
+        .scheme-link:hover {
+            transform: translateX(4px);
+        }
+
+
+        /* =========================
+           INFORMATION SECTION
+        ========================= */
+
+        .info-section {
+            margin-top: 75px;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 20px;
+
+            padding: 40px;
+        }
+
+
+        .info-section h2 {
+            color: #172554;
+
+            text-align: center;
+
+            font-size: 28px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .info-card {
+            background: #f8fafc;
+
+            border-radius: 13px;
+
+            padding: 23px;
+
+            border-left: 4px solid #ff6a00;
+        }
+
+
+        .info-card h3 {
+            color: #1e3a8a;
+
+            font-size: 17px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .info-card p {
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           ELIGIBILITY
+        ========================= */
+
+        .eligibility {
+            margin-top: 65px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+
+        .eligibility-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    #eff6ff,
+                    #ffffff
+                );
+
+            border: 1px solid #dbeafe;
+
+            border-radius: 17px;
+
+            padding: 32px;
+        }
+
+
+        .eligibility-card.orange {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7ed,
+                    #ffffff
+                );
+
+            border-color: #fed7aa;
+        }
+
+
+        .eligibility-card h2 {
+            color: #172554;
+
+            margin-bottom: 12px;
+        }
+
+
+        .eligibility-card p {
+            color: #64748b;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .eligibility-card ul {
+            list-style: none;
+        }
+
+
+        .eligibility-card li {
+            color: #475569;
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .eligibility-card li::before {
+            content: "✓";
+
+            color: #ff6a00;
+
+            font-weight: 800;
+
+            margin-right: 9px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            margin-top: 70px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #172554,
+                    #1e3a8a
+                );
+
+            color: white;
+
+            border-radius: 20px;
+
+            padding: 50px 30px;
+
+            text-align: center;
+        }
+
+
+        .cta h2 {
+            font-size: 29px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .cta p {
+            color: #cbd5e1;
+
+            max-width: 650px;
+
+            margin: auto auto 25px;
+        }
+
+
+        .cta-button {
+            display: inline-block;
+
+            background: #ff6a00;
+
+            color: white;
+
+            padding: 12px 25px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.25s ease;
+        }
+
+
+        .cta-button:hover {
+            background: #ea580c;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #172554;
+
+            color: white;
+
+            padding: 45px 7% 25px;
+        }
+
+
+        .footer-grid {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr;
+
+            gap: 45px;
+        }
+
+
+        footer h3 {
+            margin-bottom: 12px;
+        }
+
+
+        footer p,
+        footer a {
+            color: #cbd5e1;
+
+            font-size: 13px;
+        }
+
+
+        footer a {
+            display: block;
+
+            margin-bottom: 7px;
+        }
+
+
+        footer a:hover {
+            color: #ffb27a;
+        }
+
+
+        .footer-bottom {
+            max-width: 1200px;
+
+            margin: 35px auto 0;
+
+            padding-top: 18px;
+
+            border-top: 1px solid rgba(255,255,255,0.12);
+
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .scheme-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .info-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .nav-links {
+                display: none;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .top-bar {
+                display: none;
+            }
+
+
+            .navbar {
+                min-height: 68px;
+            }
+
+
+            .hero {
+                padding: 55px 7%;
+            }
+
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+
+            .hero p {
+                font-size: 15px;
+            }
+
+
+            .container {
+                width: 90%;
+
+                padding: 45px 0;
+            }
+
+
+            .scheme-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .info-section {
+                padding: 28px 20px;
+            }
+
+
+            .eligibility {
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOP BAR
+    ========================= -->
+
+    <div class="top-bar">
+
+        <div class="top-left">
+
+            <span>🇮🇳 Government Service Portal</span>
+
+            <span>Gram Panchayat</span>
+
+        </div>
+
+
+        <div class="top-right">
+
+            <span>Citizen First</span>
+
+            <span>Public Service</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                MP
+            </div>
+
+
+            <div class="brand-text">
+
+                <h2>
+                    Meri Panchayat
+                </h2>
+
+                <span>
+                    Digital Gram Panchayat Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'about' %}">
+                About
+            </a>
+
+            <a href="{% url 'services' %}">
+                Services
+            </a>
+
+            <a href="{% url 'schemes' %}"
+               class="active">
+                Schemes
+            </a>
+
+            <a href="{% url 'members' %}">
+                Members
+            </a>
+
+            <a href="{% url 'notices' %}">
+                Notices
+            </a>
+
+            <a href="{% url 'development' %}">
+                Development
+            </a>
+
+            <a href="{% url 'contact' %}">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                Citizen Welfare & Support
+            </span>
+
+
+            <h1>
+                Government Schemes
+            </h1>
+
+
+            <p>
+                Explore information about government welfare
+                schemes and support programs available for
+                eligible citizens and rural communities.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main class="container">
+
+
+        <!-- SCHEMES -->
+
+        <section>
+
+            <div class="section-header">
+
+                <span>
+                    Citizen Benefits
+                </span>
+
+
+                <h2>
+                    Available Schemes
+                </h2>
+
+
+                <p>
+                    Information about major welfare categories
+                    that may support citizens in areas such as
+                    housing, employment, education and health.
+                </p>
+
+            </div>
+
+
+            <div class="scheme-grid">
+
+
+                <!-- HOUSING -->
+
+                <article class="scheme-card">
+
+                    <div class="scheme-icon">
+                        🏠
+                    </div>
+
+
+                    <span class="scheme-category">
+                        Housing
+                    </span>
+
+
+                    <h3>
+                        Housing Assistance
+                    </h3>
+
+
+                    <p>
+                        Information about government housing
+                        assistance and rural housing support
+                        programs for eligible families.
+                    </p>
+
+
+                    <a href="#"
+                       class="scheme-link">
+
+                        View Information →
+
+                    </a>
+
+                </article>
+
+
+                <!-- EMPLOYMENT -->
+
+                <article class="scheme-card">
+
+                    <div class="scheme-icon">
+                        💼
+                    </div>
+
+
+                    <span class="scheme-category">
+                        Employment
+                    </span>
+
+
+                    <h3>
+                        Employment Support
+                    </h3>
+
+
+                    <p>
+                        Information about employment,
+                        livelihood and rural work support
+                        opportunities.
+                    </p>
+
+
+                    <a href="#"
+                       class="scheme-link">
+
+                        View Information →
+
+                    </a>
+
+                </article>
+
+
+                <!-- FARMERS -->
+
+                <article class="scheme-card">
+
+                    <div class="scheme-icon">
+                        🌾
+                    </div>
+
+
+                    <span class="scheme-category">
+                        Agriculture
+                    </span>
+
+
+                    <h3>
+                        Farmer Support
+                    </h3>
+
+
+                    <p>
+                        Information about agricultural support,
+                        farmer welfare and rural livelihood
+                        programs.
+                    </p>
+
+
+                    <a href="#"
+                       class="scheme-link">
+
+                        View Information →
+
+                    </a>
+
+                </article>
+
+
+                <!-- EDUCATION -->
+
+                <article class="scheme-card">
+
+                    <div class="scheme-icon">
+                        🎓
+                    </div>
+
+
+                    <span class="scheme-category">
+                        Education
+                    </span>
+
+
+                    <h3>
+                        Education Support
+                    </h3>
+
+
+                    <p>
+                        Information about scholarships,
+                        educational assistance and student
+                        welfare programs.
+                    </p>
+
+
+                    <a href="#"
+                       class="scheme-link">
+
+                        View Information →
+
+                    </a>
+
+                </article>
+
+
+                <!-- HEALTH -->
+
+                <article class="scheme-card">
+
+                    <div class="scheme-icon">
+                        🏥
+                    </div>
+
+
+                    <span class="scheme-category">
+                        Health
+                    </span>
+
+
+                    <h3>
+                        Health & Welfare
+                    </h3>
+
+
+                    <p>
+                        Information about public health,
+                        medical assistance and welfare
+                        programs.
+                    </p>
+
+
+                    <a href="#"
+                       class="scheme-link">
+
+                        View Information →
+
+                    </a>
+
+                </article>
+
+
+                <!-- WOMEN -->
+
+                <article class="scheme-card">
+
+                    <div class="scheme-icon">
+                        👩‍👧
+                    </div>
+
+
+                    <span class="scheme-category">
+                        Women & Children
+                    </span>
+
+
+                    <h3>
+                        Women & Child Welfare
+                    </h3>
+
+
+                    <p>
+                        Information about welfare and support
+                        initiatives for women and children.
+                    </p>
+
+
+                    <a href="#"
+                       class="scheme-link">
+
+                        View Information →
+
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HOW SCHEMES HELP
+        ========================= -->
+
+        <section class="info-section">
+
+            <h2>
+                How Government Schemes Help Citizens
+            </h2>
+
+
+            <div class="info-grid">
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🏠 Basic Needs
+                    </h3>
+
+                    <p>
+                        Welfare programs can provide support
+                        for housing and essential household
+                        needs to eligible beneficiaries.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        💼 Livelihood
+                    </h3>
+
+                    <p>
+                        Employment and livelihood programs
+                        can support income opportunities
+                        in rural communities.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🎓 Education
+                    </h3>
+
+                    <p>
+                        Educational assistance can help
+                        eligible students continue their
+                        studies.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🏥 Healthcare
+                    </h3>
+
+                    <p>
+                        Health-related welfare programs can
+                        provide access to eligible public
+                        healthcare benefits.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🌾 Agriculture
+                    </h3>
+
+                    <p>
+                        Agricultural programs can provide
+                        support to eligible farmers and
+                        rural households.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        🤝 Social Welfare
+                    </h3>
+
+                    <p>
+                        Welfare initiatives support vulnerable
+                        sections of society through eligible
+                        government programs.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ELIGIBILITY
+        ========================= -->
+
+        <section class="eligibility">
+
+
+            <div class="eligibility-card">
+
+                <h2>
+                    Who Can Apply?
+                </h2>
+
+
+                <p>
+                    Eligibility depends on the individual
+                    government scheme and its official
+                    guidelines.
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        Eligible rural households
+                    </li>
+
+                    <li>
+                        Students meeting scheme criteria
+                    </li>
+
+                    <li>
+                        Eligible farmers
+                    </li>
+
+                    <li>
+                        Women and children under applicable programs
+                    </li>
+
+                    <li>
+                        Citizens meeting income or category requirements
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="eligibility-card orange">
+
+                <h2>
+                    Important Information
+                </h2>
+
+
+                <p>
+                    Before applying for any scheme, citizens
+                    should verify the latest eligibility,
+                    documents and application process from
+                    the concerned government department.
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        Check eligibility
+                    </li>
+
+                    <li>
+                        Keep required documents ready
+                    </li>
+
+                    <li>
+                        Verify official application process
+                    </li>
+
+                    <li>
+                        Avoid sharing information with unknown sources
+                    </li>
+
+                    <li>
+                        Contact the Panchayat office for guidance
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================= -->
+
+        <section class="cta">
+
+            <h2>
+                Need Help With a Government Service?
+            </h2>
+
+
+            <p>
+                If you need assistance regarding a Panchayat
+                service or local issue, you can submit a
+                complaint or contact the Panchayat office.
+            </p>
+
+
+            <a href="{% url 'contact' %}"
+               class="cta-button">
+
+                Contact Panchayat →
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    Meri Panchayat
+                </h3>
+
+
+                <p>
+                    Digital platform for citizen services,
+                    Panchayat information, public notices
+                    and local development updates.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+
+                <a href="{% url 'about' %}">
+                    About
+                </a>
+
+
+                <a href="{% url 'services' %}">
+                    Services
+                </a>
+
+
+                <a href="{% url 'members' %}">
+                    Members
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Citizen
+                </h3>
+
+
+                <a href="{% url 'submit_complaint' %}">
+                    Submit Complaint
+                </a>
+
+
+                <a href="{% url 'track_complaint' %}">
+                    Track Complaint
+                </a>
+
+
+                <a href="{% url 'notices' %}">
+                    Notices
+                </a>
+
+
+                <a href="{% url 'contact' %}">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Meri Panchayat · Digital Gram Panchayat Portal
+
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1315 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | Meri Panchayat</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           TOP BAR
+        ========================= */
+
+        .top-bar {
+            background: #172554;
+            color: white;
+
+            padding: 8px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 13px;
+        }
+
+
+        .top-left,
+        .top-right {
+            display: flex;
+            gap: 20px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            min-height: 78px;
+
+            background: white;
+
+            padding: 0 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 12px;
+
+            background: #ff6a00;
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+
+        .brand-text h2 {
+            color: #172554;
+
+            font-size: 20px;
+
+            line-height: 1.1;
+        }
+
+
+        .brand-text span {
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 6px;
+        }
+
+
+        .nav-links a {
+            color: #334155;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            padding: 10px 13px;
+
+            border-radius: 8px;
+
+            transition: 0.25s;
+        }
+
+
+        .nav-links a:hover {
+            color: #ff6a00;
+
+            background: #fff7ed;
+        }
+
+
+        .nav-links .active {
+            color: #ff6a00;
+
+            background: #fff7ed;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    #172554,
+                    #1e3a8a
+                );
+
+            color: white;
+
+            padding: 55px 7%;
+        }
+
+
+        .hero-content {
+            max-width: 1150px;
+
+            margin: auto;
+        }
+
+
+        .hero small {
+            color: #fed7aa;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.2px;
+        }
+
+
+        .hero h1 {
+            font-size: 38px;
+
+            margin-top: 5px;
+        }
+
+
+        .hero p {
+            color: #cbd5e1;
+
+            margin-top: 5px;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            width: 86%;
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 50px 0;
+        }
+
+
+        /* =========================
+           PROFILE LAYOUT
+        ========================= */
+
+        .profile-layout {
+            display: grid;
+
+            grid-template-columns: 330px 1fr;
+
+            gap: 28px;
+
+            align-items: start;
+        }
+
+
+        /* =========================
+           PROFILE CARD
+        ========================= */
+
+        .profile-card {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 12px 35px rgba(15,23,42,0.07);
+        }
+
+
+        /* =========================
+           DEFAULT AVATAR
+        ========================= */
+
+        .avatar {
+            width: 125px;
+            height: 125px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff6a00,
+                    #ff9a52
+                );
+
+            border: 6px solid #fff7ed;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 43px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 25px rgba(255,106,0,0.20);
+        }
+
+
+        .profile-card h2 {
+            color: #172554;
+
+            font-size: 24px;
+
+            margin-top: 20px;
+        }
+
+
+        .username {
+            color: #64748b;
+
+            font-size: 14px;
+
+            margin-top: 3px;
+        }
+
+
+        .citizen-badge {
+            display: inline-block;
+
+            margin-top: 14px;
+
+            padding: 6px 14px;
+
+            border-radius: 20px;
+
+            background: #eff6ff;
+
+            color: #1e3a8a;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .profile-divider {
+            height: 1px;
+
+            background: #e5e7eb;
+
+            margin: 25px 0;
+        }
+
+
+        .profile-status {
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 13px;
+
+            padding: 8px 0;
+        }
+
+
+        .profile-status span:first-child {
+            color: #64748b;
+        }
+
+
+        .profile-status span:last-child {
+            color: #16a34a;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           INFORMATION CARD
+        ========================= */
+
+        .information-card {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 12px 35px rgba(15,23,42,0.06);
+        }
+
+
+        .card-heading {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding-bottom: 18px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .card-heading h2 {
+            color: #172554;
+
+            font-size: 23px;
+        }
+
+
+        .card-heading span {
+            color: #ff6a00;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           INFORMATION GRID
+        ========================= */
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .info-box {
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 18px;
+        }
+
+
+        .info-label {
+            color: #64748b;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .info-value {
+            color: #172554;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================
+           ADDRESS
+        ========================= */
+
+        .address-box {
+            grid-column: 1 / -1;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7ed,
+                    #ffffff
+                );
+
+            border: 1px solid #fed7aa;
+        }
+
+
+        /* =========================
+           ACTIONS
+        ========================= */
+
+        .actions {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 28px;
+        }
+
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 11px 20px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+
+        .btn-primary {
+            background: #ff6a00;
+
+            color: white;
+        }
+
+
+        .btn-primary:hover {
+            background: #ea580c;
+
+            transform: translateY(-2px);
+        }
+
+
+        .btn-secondary {
+            background: #eff6ff;
+
+            color: #1e3a8a;
+
+            border: 1px solid #dbeafe;
+        }
+
+
+        .btn-secondary:hover {
+            background: #dbeafe;
+        }
+
+
+        /* =========================
+           QUICK SERVICES
+        ========================= */
+
+        .quick-section {
+            margin-top: 45px;
+        }
+
+
+        .quick-section h2 {
+            color: #172554;
+
+            font-size: 24px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .quick-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .quick-card {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 23px;
+
+            transition: 0.25s;
+        }
+
+
+        .quick-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 12px 30px rgba(15,23,42,0.08);
+        }
+
+
+        .quick-icon {
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .quick-card h3 {
+            color: #172554;
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .quick-card p {
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .quick-card a {
+            color: #ff6a00;
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #172554;
+
+            color: white;
+
+            padding: 40px 7% 22px;
+
+            margin-top: 30px;
+        }
+
+
+        .footer-grid {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr;
+
+            gap: 40px;
+        }
+
+
+        footer h3 {
+            margin-bottom: 10px;
+        }
+
+
+        footer p,
+        footer a {
+            color: #cbd5e1;
+
+            font-size: 13px;
+        }
+
+
+        footer a {
+            display: block;
+
+            margin-bottom: 6px;
+        }
+
+
+        footer a:hover {
+            color: #ffb27a;
+        }
+
+
+        .footer-bottom {
+            max-width: 1150px;
+
+            margin: 30px auto 0;
+
+            padding-top: 17px;
+
+            border-top: 1px solid rgba(255,255,255,0.12);
+
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+
+
+            .profile-card {
+                max-width: 500px;
+
+                margin: auto;
+
+                width: 100%;
+            }
+
+
+            .quick-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .top-bar {
+                display: none;
+            }
+
+
+            .hero {
+                padding: 40px 7%;
+            }
+
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+
+            .container {
+                width: 90%;
+
+                padding: 35px 0;
+            }
+
+
+            .information-card {
+                padding: 22px 18px;
+            }
+
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .address-box {
+                grid-column: auto;
+            }
+
+
+            .actions {
+                flex-direction: column;
+            }
+
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOP BAR
+    ========================= -->
+
+    <div class="top-bar">
+
+        <div class="top-left">
+
+            <span>🇮🇳 Government Service Portal</span>
+
+            <span>Citizen Services</span>
+
+        </div>
+
+
+        <div class="top-right">
+
+            <span>Secure Portal</span>
+
+            <span>Citizen First</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                MP
+            </div>
+
+
+            <div class="brand-text">
+
+                <h2>
+                    Meri Panchayat
+                </h2>
+
+                <span>
+                    Digital Gram Panchayat Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'about' %}">
+                About
+            </a>
+
+            <a href="{% url 'services' %}">
+                Services
+            </a>
+
+            <a href="{% url 'schemes' %}">
+                Schemes
+            </a>
+
+            <a href="{% url 'members' %}">
+                Members
+            </a>
+
+            <a href="{% url 'notices' %}">
+                Notices
+            </a>
+
+            <a href="{% url 'development' %}">
+                Development
+            </a>
+
+            <a href="{% url 'contact' %}">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <small>
+                Citizen Account
+            </small>
+
+            <h1>
+                My Profile
+            </h1>
+
+            <p>
+                Manage your personal information and access
+                Panchayat citizen services.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="container">
+
+
+        <div class="profile-layout">
+
+
+            <!-- =====================
+                 PROFILE SUMMARY
+            ====================== -->
+
+            <aside class="profile-card">
+
+
+                <!-- DEFAULT AVATAR -->
+
+                <div class="avatar">
+
+                    {{ profile.full_name|first|upper }}
+
+                </div>
+
+
+                <h2>
+                    {{ profile.full_name }}
+                </h2>
+
+
+                <div class="username">
+
+                    @{{ profile.user.username }}
+
+                </div>
+
+
+                <span class="citizen-badge">
+
+                    Verified Citizen Account
+
+                </span>
+
+
+                <div class="profile-divider"></div>
+
+
+                <div class="profile-status">
+
+                    <span>
+                        Account Status
+                    </span>
+
+                    <span>
+                        Active
+                    </span>
+
+                </div>
+
+
+                <div class="profile-status">
+
+                    <span>
+                        Member Since
+                    </span>
+
+                    <span>
+                        {{ profile.created_at|date:"d M Y" }}
+                    </span>
+
+                </div>
+
+
+            </aside>
+
+
+            <!-- =====================
+                 PROFILE INFORMATION
+            ====================== -->
+
+            <section class="information-card">
+
+
+                <div class="card-heading">
+
+                    <h2>
+                        Personal Information
+                    </h2>
+
+                    <span>
+                        CITIZEN PROFILE
+                    </span>
+
+                </div>
+
+
+                <div class="info-grid">
+
+
+                    <!-- FULL NAME -->
+
+                    <div class="info-box">
+
+                        <div class="info-label">
+                            Full Name
+                        </div>
+
+                        <div class="info-value">
+
+                            {{ profile.full_name }}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- USERNAME -->
+
+                    <div class="info-box">
+
+                        <div class="info-label">
+                            Username
+                        </div>
+
+                        <div class="info-value">
+
+                            @{{ profile.user.username }}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="info-box">
+
+                        <div class="info-label">
+                            Email Address
+                        </div>
+
+                        <div class="info-value">
+
+                            {{ profile.user.email|default:"Not provided" }}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MOBILE -->
+
+                    <div class="info-box">
+
+                        <div class="info-label">
+                            Mobile Number
+                        </div>
+
+                        <div class="info-value">
+
+                            {{ profile.mobile|default:"Not provided" }}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="info-box address-box">
+
+                        <div class="info-label">
+                            Address
+                        </div>
+
+                        <div class="info-value">
+
+                            {{ profile.address|default:"Address not provided" }}
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="actions">
+
+                    <a href="{% url 'edit_profile' %}"
+                       class="btn btn-primary">
+
+                        ✏️ Edit Profile
+
+                    </a>
+
+
+                    <a href="{% url 'dashboard' %}"
+                       class="btn btn-secondary">
+
+                        📊 My Dashboard
+
+                    </a>
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+        <!-- =========================
+             QUICK SERVICES
+        ========================= -->
+
+        <section class="quick-section">
+
+
+            <h2>
+                Citizen Services
+            </h2>
+
+
+            <div class="quick-grid">
+
+
+                <div class="quick-card">
+
+                    <div class="quick-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Submit Complaint
+                    </h3>
+
+                    <p>
+                        Report a local issue or public service
+                        related complaint.
+                    </p>
+
+                    <a href="{% url 'submit_complaint' %}">
+                        Submit Now →
+                    </a>
+
+                </div>
+
+
+                <div class="quick-card">
+
+                    <div class="quick-icon">
+                        🔎
+                    </div>
+
+                    <h3>
+                        Track Complaint
+                    </h3>
+
+                    <p>
+                        Check the current status of your
+                        submitted complaint.
+                    </p>
+
+                    <a href="{% url 'track_complaint' %}">
+                        Track Now →
+                    </a>
+
+                </div>
+
+
+                <div class="quick-card">
+
+                    <div class="quick-icon">
+                        📢
+                    </div>
+
+                    <h3>
+                        Panchayat Notices
+                    </h3>
+
+                    <p>
+                        View important public notices and
+                        Panchayat announcements.
+                    </p>
+
+                    <a href="{% url 'notices' %}">
+                        View Notices →
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    Meri Panchayat
+                </h3>
+
+                <p>
+                    Digital platform for citizen services,
+                    Panchayat information, public notices
+                    and local development updates.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'services' %}">
+                    Services
+                </a>
+
+                <a href="{% url 'notices' %}">
+                    Notices
+                </a>
+
+                <a href="{% url 'development' %}">
+                    Development
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Account
+                </h3>
+
+                <a href="{% url 'profile' %}">
+                    My Profile
+                </a>
+
+                <a href="{% url 'dashboard' %}">
+                    Dashboard
+                </a>
+
+                <a href="{% url 'logout' %}">
+                    Logout
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Meri Panchayat · Digital Gram Panchayat Portal
+
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+</html>

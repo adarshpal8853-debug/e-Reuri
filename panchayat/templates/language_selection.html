@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Welcome | Meri Panchayat</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7ed,
+                    #eff6ff
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+        }
+
+        .welcome-container {
+            width: 100%;
+            max-width: 850px;
+
+            background: white;
+
+            border-radius: 24px;
+
+            padding: 55px 40px;
+
+            text-align: center;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.12);
+
+            border-top: 6px solid #FF6A00;
+        }
+
+        .emblem {
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #1E3A8A;
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 42px;
+
+            box-shadow:
+                0 10px 25px rgba(30, 58, 138, 0.25);
+        }
+
+        .welcome {
+            color: #FF6A00;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #1E3A8A;
+
+            font-size: 42px;
+
+            margin-bottom: 8px;
+        }
+
+        .panchayat-name {
+            color: #374151;
+
+            font-size: 21px;
+
+            font-weight: 600;
+
+            margin-bottom: 18px;
+        }
+
+        .description {
+            max-width: 620px;
+
+            margin: 0 auto 35px;
+
+            color: #6b7280;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+        .language-title {
+            color: #111827;
+
+            font-size: 23px;
+
+            margin-bottom: 8px;
+        }
+
+        .language-subtitle {
+            color: #6b7280;
+
+            margin-bottom: 25px;
+        }
+
+        .language-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .language-card {
+            width: 220px;
+
+            min-height: 125px;
+
+            border: 2px solid #e5e7eb;
+
+            border-radius: 16px;
+
+            background: white;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .language-card:hover {
+            transform: translateY(-6px);
+
+            border-color: #FF6A00;
+
+            box-shadow:
+                0 12px 30px rgba(255, 106, 0, 0.18);
+        }
+
+        .language-icon {
+            font-size: 34px;
+
+            margin-bottom: 8px;
+        }
+
+        .language-name {
+            color: #1E3A8A;
+
+            font-size: 19px;
+
+            font-weight: 700;
+        }
+
+        .language-english {
+            color: #6b7280;
+
+            font-size: 13px;
+
+            margin-top: 4px;
+        }
+
+        .footer-text {
+            margin-top: 35px;
+
+            color: #9ca3af;
+
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+
+            .welcome-container {
+                padding: 40px 20px;
+
+                border-radius: 18px;
+            }
+
+            h1 {
+                font-size: 31px;
+            }
+
+            .panchayat-name {
+                font-size: 18px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .language-buttons {
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+            .language-card {
+                width: 100%;
+
+                max-width: 280px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="welcome-container">
+
+        <div class="emblem">
+            🏛️
+        </div>
+
+        <div class="welcome">
+            Welcome / स्वागत है
+        </div>
+
+        <h1>
+            Meri Panchayat
+        </h1>
+
+        <div class="panchayat-name">
+            Gram Panchayat Reuri
+        </div>
+
+        <p class="description">
+            Welcome to the official digital portal of
+            Gram Panchayat Reuri. Access citizen services,
+            submit complaints, view notices, track development
+            activities and stay connected with your Panchayat.
+        </p>
+
+        <h2 class="language-title">
+            Choose Your Language
+        </h2>
+
+        <p class="language-subtitle">
+            अपनी भाषा चुनें
+        </p>
+
+
+        <div class="language-buttons">
+
+            <!-- HINDI -->
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <input
+                    type="hidden"
+                    name="language"
+                    value="hi"
+                >
+
+                <button
+                    type="submit"
+                    class="language-card"
+                >
+
+                    <div class="language-icon">
+                        🇮🇳
+                    </div>
+
+                    <div class="language-name">
+                        हिंदी
+                    </div>
+
+                    <div class="language-english">
+                        Hindi
+                    </div>
+
+                </button>
+
+            </form>
+
+
+            <!-- ENGLISH -->
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <input
+                    type="hidden"
+                    name="language"
+                    value="en"
+                >
+
+                <button
+                    type="submit"
+                    class="language-card"
+                >
+
+                    <div class="language-icon">
+                        🇬🇧
+                    </div>
+
+                    <div class="language-name">
+                        English
+                    </div>
+
+                    <div class="language-english">
+                        अंग्रेज़ी
+                    </div>
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div class="footer-text">
+            Digital Panchayat Portal • Gram Panchayat Reuri
+        </div>
+
+    </div>
+
+</body>
+</html>

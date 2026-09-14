@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Complaint Submitted</title>
+
+    {% load static %}
+
+    <link rel="stylesheet"
+          href="{% static 'panchayat/style.css' %}">
+
+</head>
+
+<body>
+
+    <section class="section">
+
+        <div class="about-box"
+             style="text-align:center;">
+
+            <div style="font-size:60px;">
+                ✅
+            </div>
+
+            <h2 style="color:#1e3a8a;">
+                Complaint Submitted Successfully
+            </h2>
+
+            <p>
+
+                Your complaint has been
+                successfully submitted to
+                Gram Panchayat Reuri.
+
+            </p>
+
+            <h3 style="margin:25px 0;">
+
+                Complaint ID:
+
+                <strong>
+                    {{ complaint_id }}
+                </strong>
+
+            </h3>
+
+            <p>
+
+                Please save this Complaint ID
+                to track your complaint later.
+
+            </p>
+
+            <br>
+
+            <a
+                href="/"
+                class="btn primary">
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Meri Panchayat{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{% static 'panchayat/style.css' %}">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🏛️
+        </div>
+
+        <div>
+
+            <h2>Meri Panchayat</h2>
+
+            <span>Gram Panchayat Reuri</span>
+
+        </div>
+
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#notices">Notices</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+
+
+<!-- Footer -->
+
+<footer>
+
+    <h3>Meri Panchayat</h3>
+
+    <p>Gram Panchayat Reuri</p>
+
+    <p class="copyright">
+
+        © 2026 Meri Panchayat. All Rights Reserved. @ Adarsh Pal
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>

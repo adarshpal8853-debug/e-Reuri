@@ -1,0 +1,392 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Notices | Meri Panchayat</title>
+     
+   {% load static %}
+
+<link rel="stylesheet" href="{% static 'panchayat/notice.css' %}">
+
+
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="/" class="logo">
+            <span class="logo-icon">MP</span>
+
+            <div>
+                <strong>Meri Panchayat</strong>
+                <small>Gram Panchayat Reuri</small>
+            </div>
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/about/">About</a>
+
+            <a href="/members/">Members</a>
+
+            <a href="/schemes/">Schemes</a>
+
+            <a href="/services/">Services</a>
+
+            <a href="/notices/" class="active">
+                Notices
+            </a>
+
+            <a href="/contact/">Contact</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     PAGE HERO
+===================================================== -->
+
+<section class="notice-hero">
+
+    <div class="hero-container">
+
+        <div class="hero-label">
+            ग्राम पंचायत रेवड़ी
+        </div>
+
+        <h1>
+            Official
+            <span>Notices</span>
+        </h1>
+
+        <p>
+            ग्राम पंचायत द्वारा जारी महत्वपूर्ण सूचनाएं,
+            घोषणाएं और सार्वजनिक नोटिस यहां देखें।
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NOTICE CONTENT
+===================================================== -->
+
+<main class="notice-section">
+
+    <div class="notice-container">
+
+
+        <!-- PAGE HEADING -->
+
+        <div class="notice-heading">
+
+            <div>
+
+                <span class="section-label">
+                    PUBLIC INFORMATION
+                </span>
+
+                <h2>
+                    Latest Notices &amp; Announcements
+                </h2>
+
+            </div>
+
+            <p>
+                पंचायत से संबंधित महत्वपूर्ण जानकारी और
+                सार्वजनिक घोषणाएं एक ही स्थान पर।
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             NOTICE LIST
+        ================================================== -->
+
+        <div class="notice-list">
+
+<div class="notice-list">
+
+    {% for notice in notices %}
+
+        <article class="notice-card">
+
+            <div class="notice-date">
+
+                <strong>
+                    {{ notice.notice_date|date:"d" }}
+                </strong>
+
+                <span>
+                    {{ notice.notice_date|date:"M" }}
+                </span>
+
+            </div>
+
+            <div class="notice-content">
+
+                <div class="notice-meta">
+
+                    <span class="notice-badge">
+                        Official
+                    </span>
+
+                    <span>
+                        सार्वजनिक सूचना
+                    </span>
+
+                </div>
+
+                <h3>
+                    {{ notice.title }}
+                </h3>
+
+                <p>
+                    {{ notice.description }}
+                </p>
+
+                <a href="{% url 'notice_detail' notice.pk %}">
+                    Read Full Notice →
+                </a>
+
+            </div>
+
+        </article>
+
+    {% empty %}
+
+        <p>
+            अभी कोई notice उपलब्ध नहीं है।
+        </p>
+
+    {% endfor %}
+
+</div>
+            
+
+
+            <!-- NOTICE 04 -->
+
+            <article class="notice-card">
+
+                <div class="notice-date">
+
+                    <strong>28</strong>
+
+                    <span>
+                        JUL
+                    </span>
+
+                </div>
+
+
+                <div class="notice-content">
+
+                    <div class="notice-meta">
+
+                        <span class="notice-badge">
+                            Scheme
+                        </span>
+
+                        <span>
+                            सरकारी योजना
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        सरकारी योजनाओं के लाभार्थियों हेतु सूचना
+                    </h3>
+
+                    <p>
+                        विभिन्न सरकारी योजनाओं के पात्र लाभार्थियों
+                        के लिए आवश्यक जानकारी एवं आवेदन प्रक्रिया
+                        के संबंध में सूचना।
+                    </p>
+
+                    <a href="#">
+                        Read Full Notice →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- NOTICE 05 -->
+
+            <article class="notice-card">
+
+                <div class="notice-date">
+
+                    <strong>20</strong>
+
+                    <span>
+                        JUL
+                    </span>
+
+                </div>
+
+
+                <div class="notice-content">
+
+                    <div class="notice-meta">
+
+                        <span class="notice-badge">
+                            Meeting
+                        </span>
+
+                        <span>
+                            पंचायत बैठक
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        ग्राम पंचायत बैठक के संबंध में सूचना
+                    </h3>
+
+                    <p>
+                        ग्राम पंचायत की आगामी बैठक में नागरिकों से
+                        संबंधित विषयों एवं प्रस्तावों पर चर्चा की जाएगी।
+                    </p>
+
+                    <a href="#">
+                        Read Full Notice →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- =================================================
+             NOTICE FOOTER
+        ================================================== -->
+
+        <div class="notice-info">
+
+            <div class="info-icon">
+                !
+            </div>
+
+            <div>
+
+                <h3>
+                    Important Information
+                </h3>
+
+                <p>
+                    सभी आधिकारिक सूचनाओं के लिए ग्राम पंचायत
+                    कार्यालय से प्राप्त जानकारी को प्राथमिकता दें।
+                    किसी भी सहायता के लिए पंचायत कार्यालय से संपर्क करें।
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <h3>
+                Meri Panchayat
+            </h3>
+
+            <p>
+                ग्राम पंचायत रेवड़ी
+            </p>
+
+            <p>
+                Digital Panchayat Information Portal
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/about/">
+                About
+            </a>
+
+            <a href="/schemes/">
+                Schemes
+            </a>
+
+            <a href="/notices/">
+                Notices
+            </a>
+
+            <a href="/contact/">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Meri Panchayat. All Rights Reserved.
+        </p>
+
+        <p>
+            Gram Panchayat Reuri
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

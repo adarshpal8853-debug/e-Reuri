@@ -1,0 +1,695 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gram Sabha Meetings | Meri Panchayat</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: #1E3A8A;
+            min-height: 70px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .brand {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .brand span {
+            color: #FF6A00;
+        }
+
+        .menu-toggle {
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 10px;
+            background: #FF6A00;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .nav-menu {
+            position: absolute;
+            top: 65px;
+            right: 6%;
+            width: 270px;
+            background: white;
+            padding: 12px;
+            border-radius: 14px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .nav-menu.active {
+            display: flex;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #1E3A8A;
+            font-weight: 600;
+            padding: 11px 14px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .nav-menu a:hover {
+            background: #fff1e8;
+            color: #FF6A00;
+            transform: translateX(4px);
+        }
+
+        .nav-menu hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 8px 0;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: linear-gradient(
+                135deg,
+                #1E3A8A,
+                #2749a0
+            );
+
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #e5e7eb;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 50px auto;
+        }
+
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            color: #1E3A8A;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+
+        /* =========================
+           MEETING GRID
+        ========================= */
+
+        .meeting-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+
+        /* =========================
+           MEETING CARD
+        ========================= */
+
+        .meeting-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meeting-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #FF6A00;
+        }
+
+        .meeting-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .meeting-icon {
+            width: 55px;
+            height: 55px;
+            background: #fff1e8;
+            color: #FF6A00;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            margin-bottom: 18px;
+        }
+
+        .meeting-card h3 {
+            color: #1E3A8A;
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
+
+        .meeting-info {
+            margin-bottom: 8px;
+            color: #4b5563;
+        }
+
+        .meeting-info strong {
+            color: #1f2937;
+        }
+
+        .meeting-description {
+            margin-top: 15px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .details-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background: #1E3A8A;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .details-btn:hover {
+            background: #FF6A00;
+        }
+
+
+        /* =========================
+           EMPTY MESSAGE
+        ========================= */
+
+        .empty-box {
+            background: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        .empty-box .empty-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .empty-box h3 {
+            color: #1E3A8A;
+            margin-bottom: 8px;
+        }
+
+        .empty-box p {
+            color: #6b7280;
+        }
+
+
+        /* =========================
+           INFORMATION SECTION
+        ========================= */
+
+        .info-section {
+            margin-top: 55px;
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        .info-section h2 {
+            color: #1E3A8A;
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .info-list {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+            color: #4b5563;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 70px;
+        }
+
+        footer h3 {
+            color: #FF6A00;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .meeting-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .brand {
+                font-size: 20px;
+            }
+
+            .nav-menu {
+                right: 10px;
+                width: calc(100vw - 20px);
+            }
+
+            .hero {
+                padding: 55px 20px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .container {
+                width: 92%;
+                margin: 35px auto;
+            }
+
+            .meeting-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-section {
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+        <a href="{% url 'home' %}" class="brand">
+            Meri <span>Panchayat</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            onclick="toggleMenu()"
+            type="button"
+            aria-label="Open Menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+        <div class="nav-menu" id="navMenu">
+
+            <a href="{% url 'home' %}">🏠 Home</a>
+
+            <a href="{% url 'about' %}">ℹ️ About</a>
+
+            <a href="{% url 'services' %}">🛠️ Services</a>
+
+            <a href="{% url 'schemes' %}">🏛️ Schemes</a>
+
+            <a href="{% url 'members' %}">👥 Members</a>
+
+            <a href="{% url 'funds' %}">💰 Funds</a>
+
+            <a href="{% url 'notices' %}">📢 Notices</a>
+
+            <a href="{% url 'development' %}">🏗️ Development</a>
+
+            <a href="{% url 'meetings' %}">📅 Meetings</a>
+
+            <a href="{% url 'submit_complaint' %}">📝 Complaint</a>
+
+            <a href="{% url 'track_complaint' %}">🔍 Track Complaint</a>
+
+            <a href="{% url 'contact' %}">📞 Contact</a>
+
+            <a href="{% url 'dashboard' %}">📊 Dashboard</a>
+
+            <a href="{% url 'profile' %}">👤 Profile</a>
+
+            <hr>
+
+            <a href="{% url 'login' %}">🔐 Login</a>
+
+            <a href="{% url 'signup' %}">✨ Create Account</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="icon">📅</div>
+
+        <h1>Gram Sabha Meetings</h1>
+
+        <p>
+            Gram Panchayat Reuri ki Gram Sabha meetings,
+            schedules aur important meeting information.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="container">
+
+        <div class="section-title">
+
+            <h2>Upcoming & Previous Meetings</h2>
+
+            <p>
+                Panchayat meetings ki important information yahan dekhein.
+            </p>
+
+        </div>
+
+
+        {% if meetings %}
+
+            <div class="meeting-grid">
+
+                {% for meeting in meetings %}
+
+                    <div class="meeting-card">
+
+                        <div class="meeting-icon">
+                            📅
+                        </div>
+
+                        <h3>
+                            {{ meeting.title }}
+                        </h3>
+
+                        <div class="meeting-info">
+                            📅
+                            <strong>Date:</strong>
+                            {{ meeting.meeting_date|date:"d M Y" }}
+                        </div>
+
+                        <div class="meeting-info">
+                            🕐
+                            <strong>Time:</strong>
+                            {{ meeting.meeting_time|time:"h:i A" }}
+                        </div>
+
+                        <div class="meeting-info">
+                            📍
+                            <strong>Venue:</strong>
+                            {{ meeting.venue }}
+                        </div>
+
+                        {% if meeting.description %}
+
+                            <p class="meeting-description">
+                                {{ meeting.description|truncatewords:25 }}
+                            </p>
+
+                        {% endif %}
+
+                        <a
+                            href="{% url 'meeting_detail' meeting.id %}"
+                            class="details-btn"
+                        >
+                            View Details →
+                        </a>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-box">
+
+                <div class="empty-icon">
+                    📅
+                </div>
+
+                <h3>
+                    No Meetings Available
+                </h3>
+
+                <p>
+                    Abhi koi Gram Sabha meeting schedule nahi ki gayi hai.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- =========================
+             INFORMATION
+        ========================= -->
+
+        <section class="info-section">
+
+            <h2>About Gram Sabha Meetings</h2>
+
+            <p>
+                Gram Sabha meetings mein village development,
+                public issues aur important Panchayat decisions
+                par discussion kiya jata hai.
+            </p>
+
+            <p>
+                Citizens meetings mein participate karke
+                apne suggestions aur problems Panchayat ke
+                saamne rakh sakte hain.
+            </p>
+
+            <ul class="info-list">
+
+                <li>Village development proposals</li>
+
+                <li>Public complaints and local issues</li>
+
+                <li>Government schemes and benefits</li>
+
+                <li>Panchayat development works</li>
+
+                <li>Important Gram Sabha decisions</li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <h3>Meri Panchayat</h3>
+
+        <p>
+            Gram Panchayat Reuri | Digital Citizen Services Portal
+        </p>
+
+        <p>
+            © 2026 Meri Panchayat. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function toggleMenu() {
+
+            const menu = document.getElementById("navMenu");
+
+            menu.classList.toggle("active");
+
+        }
+
+
+        document.addEventListener("click", function(event) {
+
+            const menu = document.getElementById("navMenu");
+
+            const button = document.querySelector(".menu-toggle");
+
+            if (
+                menu &&
+                button &&
+                !menu.contains(event.target) &&
+                !button.contains(event.target)
+            ) {
+
+                menu.classList.remove("active");
+
+            }
+
+        });
+
+
+        document.querySelectorAll(".nav-menu a").forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                document.getElementById("navMenu").classList.remove("active");
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

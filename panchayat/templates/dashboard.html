@@ -1,0 +1,368 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Citizen Dashboard | Meri Panchayat</title>
+
+ <link rel="stylesheet" href="{% static 'panchayat/dashboard.css' %}">
+
+    
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="brand">
+            <div class="brand-icon">🏛️</div>
+
+            <div>
+                <h2>Meri Panchayat</h2>
+                <span>Citizen Portal</span>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <a href="{% url 'dashboard' %}" class="active">
+    Dashboard
+</a>
+
+            <a href="{% url 'submit_complaint' %}">
+                Submit Complaint
+            </a>
+
+            <a href="{% url 'track_complaint' %}">
+                Track Complaint
+            </a>
+
+            <a href="{% url 'citizen_logout' %}" class="logout">
+                Logout
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+    <main class="dashboard-container">
+
+        <!-- WELCOME -->
+        <section class="welcome-box">
+
+            <div>
+
+                <p class="small-title">
+                    CITIZEN DASHBOARD
+                </p>
+
+                <h1>
+                    Welcome, {{ request.user.username }}
+                </h1>
+
+                <p>
+                    Manage and track your Panchayat complaints easily.
+                </p>
+
+            </div>
+
+            <a href="{% url 'submit_complaint' %}"
+               class="new-complaint-btn">
+                + Submit New Complaint
+            </a>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    📋
+                </div>
+
+                <div>
+                    <span>Total Complaints</span>
+                    <strong>{{ total_complaints }}</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div>
+                    <span>Pending</span>
+                    <strong>{{ pending_complaints }}</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    🔄
+                </div>
+
+                <div>
+                    <span>In Progress</span>
+                    <strong>{{ progress_complaints }}</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✅
+                </div>
+
+                <div>
+                    <span>Resolved</span>
+                    <strong>{{ resolved_complaints }}</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="small-title">
+                        QUICK ACTIONS
+                    </p>
+
+                    <h2>
+                        What would you like to do?
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+                <a href="{% url 'submit_complaint' %}"
+                   class="quick-card">
+
+                    <div class="quick-icon">
+                        📝
+                    </div>
+
+                    <div>
+                        <h3>Submit Complaint</h3>
+
+                        <p>
+                            Register a new complaint to your Panchayat.
+                        </p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+
+                <a href="{% url 'track_complaint' %}"
+                   class="quick-card">
+
+                    <div class="quick-icon">
+                        🔍
+                    </div>
+
+                    <div>
+                        <h3>Track Complaint</h3>
+
+                        <p>
+                            Check the current status of your complaint.
+                        </p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+
+                <a href="#recent"
+                   class="quick-card">
+
+                    <div class="quick-icon">
+                        📊
+                    </div>
+
+                    <div>
+                        <h3>Recent Complaints</h3>
+
+                        <p>
+                            View your recently submitted complaints.
+                        </p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT COMPLAINTS -->
+        <section class="section" id="recent">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="small-title">
+                        COMPLAINT HISTORY
+                    </p>
+
+                    <h2>
+                        Recent Complaints
+                    </h2>
+                </div>
+
+            </div>
+
+
+            {% if recent_complaints %}
+
+            <div class="complaint-table">
+
+                <div class="table-header">
+
+                    <div>Complaint ID</div>
+                    <div>Subject</div>
+                    <div>Category</div>
+                    <div>Status</div>
+                    <div>Action</div>
+
+                </div>
+
+
+                {% for complaint in recent_complaints %}
+
+                <div class="table-row">
+
+                    <div class="complaint-id">
+                        {{ complaint.complaint_id }}
+                    </div>
+
+                    <div class="subject">
+                        {{ complaint.subject }}
+                    </div>
+
+                    <div>
+                        {{ complaint.get_category_display }}
+                    </div>
+
+                    <div>
+
+                        <span class="status {{ complaint.status }}">
+                            {{ complaint.get_status_display }}
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <a href="{% url 'track_complaint' %}"
+                           class="view-all">
+                            View
+                        </a>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-state">
+
+                <div>📭</div>
+
+                <h3>No Complaints Yet</h3>
+
+                <p>
+                    You have not submitted any complaints yet.
+                    Submit your first complaint to get started.
+                </p>
+
+                <a href="{% url 'submit_complaint' %}"
+                   class="new-complaint-btn">
+                    Submit Complaint
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </section>
+
+
+        <!-- INFO -->
+        <div class="info-banner">
+
+            <div class="info-icon">
+                ℹ️
+            </div>
+
+            <div>
+
+                <h3>
+                    Need help?
+                </h3>
+
+                <p>
+                    You can submit a complaint or track an existing
+                    complaint using the options above.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>
+            Meri Panchayat
+        </h3>
+
+        <p>
+            Citizen Complaint Management Portal
+        </p>
+
+        <p class="copyright">
+            © 2026 Meri Panchayat. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ notice.title }} | Meri Panchayat</title>
+
+    <link rel="stylesheet"
+          href="{% static 'panchayat/notice.css' %}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="/" class="logo">
+
+            <span class="logo-icon">MP</span>
+
+            <div>
+                <strong>Meri Panchayat</strong>
+                <small>Gram Panchayat Reuri</small>
+            </div>
+
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/notices/" class="active">Notices</a>
+            <a href="/contact/">Contact</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="notice-section">
+
+    <div class="notice-container">
+
+        <div class="notice-heading">
+
+            <span class="section-label">
+                OFFICIAL NOTICE
+            </span>
+
+            <h1>
+                {{ notice.title }}
+            </h1>
+
+            <p>
+                Published on
+                {{ notice.notice_date|date:"d M Y" }}
+            </p>
+
+        </div>
+
+
+        <article class="notice-card">
+
+            <div class="notice-content">
+
+                <div class="notice-meta">
+
+                    <span class="notice-badge important">
+                        Official
+                    </span>
+
+                    <span>
+                        Gram Panchayat Reuri
+                    </span>
+
+                </div>
+
+                <h3>
+                    {{ notice.title }}
+                </h3>
+
+                <p>
+                    {{ notice.description }}
+                </p>
+
+                <br>
+
+                <a href="{% url 'notices' %}">
+                    ← Back to Notices
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <h3>Meri Panchayat</h3>
+
+            <p>ग्राम पंचायत रेवड़ी</p>
+
+            <p>Digital Panchayat Information Portal</p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>

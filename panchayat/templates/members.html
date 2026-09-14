@@ -1,0 +1,1484 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Panchayat Members | Meri Panchayat</title>
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           TOP GOVERNMENT BAR
+        ========================= */
+
+        .top-bar {
+            background: #172554;
+            color: white;
+            padding: 8px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+
+        .top-left {
+            display: flex;
+            gap: 20px;
+        }
+
+
+        .top-right {
+            display: flex;
+            gap: 18px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: white;
+            min-height: 78px;
+            padding: 0 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 12px;
+
+            background: #ff6a00;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+
+        .brand-text h2 {
+            color: #172554;
+            font-size: 20px;
+            line-height: 1.1;
+        }
+
+
+        .brand-text span {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+
+        .nav-links a {
+            color: #334155;
+            font-size: 14px;
+            font-weight: 600;
+
+            padding: 10px 13px;
+            border-radius: 8px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .nav-links a:hover {
+            color: #ff6a00;
+            background: #fff7ed;
+        }
+
+
+        .nav-links .active {
+            color: #ff6a00;
+            background: #fff7ed;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #172554 0%,
+                    #1e3a8a 55%,
+                    #ff6a00 100%
+                );
+
+            color: white;
+
+            padding: 75px 7% 85px;
+
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            border: 60px solid rgba(255,255,255,0.05);
+
+            right: -120px;
+            top: -120px;
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.05);
+
+            left: -90px;
+            bottom: -100px;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 850px;
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 7px 16px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.13);
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            font-size: 13px;
+            font-weight: 600;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+
+            color: #e2e8f0;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           PAGE CONTAINER
+        ========================= */
+
+        .container {
+            width: 86%;
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 65px 0;
+        }
+
+
+        /* =========================
+           SECTION HEADER
+        ========================= */
+
+        .section-header {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .section-header span {
+            color: #ff6a00;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .section-header h2 {
+            color: #172554;
+
+            font-size: 32px;
+
+            margin: 8px 0;
+        }
+
+
+        .section-header p {
+            color: #64748b;
+
+            max-width: 650px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           LEADERSHIP
+        ========================= */
+
+        .leader-section {
+            margin-bottom: 70px;
+        }
+
+
+        .leader-card {
+            max-width: 760px;
+            margin: auto;
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 32px;
+
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 15px 45px rgba(15,23,42,0.08);
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: 0.3s ease;
+        }
+
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 22px 55px rgba(15,23,42,0.13);
+        }
+
+
+        .leader-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 6px;
+            height: 100%;
+
+            background: #ff6a00;
+
+            left: 0;
+            top: 0;
+        }
+
+
+        .profile-photo {
+            width: 130px;
+            height: 130px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffedd5,
+                    #fed7aa
+                );
+
+            border: 5px solid white;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.12);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #c2410c;
+
+            font-size: 38px;
+            font-weight: 800;
+        }
+
+
+        .leader-info h3 {
+            color: #172554;
+
+            font-size: 27px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .designation {
+            color: #ff6a00;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .leader-info p {
+            color: #64748b;
+
+            font-size: 15px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .contact-pill {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: #f1f5f9;
+
+            padding: 8px 13px;
+
+            border-radius: 8px;
+
+            color: #334155;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           MEMBERS GRID
+        ========================= */
+
+        .members-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .member-card {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 17px;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: 0.3s ease;
+        }
+
+
+        .member-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #fed7aa;
+
+            box-shadow:
+                0 18px 45px rgba(15,23,42,0.10);
+        }
+
+
+        .member-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+            height: 4px;
+
+            background: #ff6a00;
+
+            left: 0;
+            bottom: 0;
+
+            transform: scaleX(0);
+
+            transform-origin: center;
+
+            transition: 0.3s ease;
+        }
+
+
+        .member-card:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        .member-photo {
+            width: 92px;
+            height: 92px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            background: #eff6ff;
+
+            border: 4px solid #dbeafe;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: #1e3a8a;
+
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+
+        .member-card h3 {
+            color: #172554;
+
+            font-size: 20px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .member-role {
+            color: #ff6a00;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.7px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .member-card p {
+            color: #64748b;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .member-contact {
+            display: inline-block;
+
+            background: #f8fafc;
+
+            padding: 7px 12px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            color: #475569;
+        }
+
+
+        /* =========================
+           RESPONSIBILITY SECTION
+        ========================= */
+
+        .responsibility {
+            margin-top: 75px;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            padding: 35px;
+        }
+
+
+        .responsibility h2 {
+            color: #172554;
+
+            text-align: center;
+
+            margin-bottom: 28px;
+        }
+
+
+        .responsibility-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .responsibility-item {
+            padding: 22px;
+
+            background: #f8fafc;
+
+            border-radius: 12px;
+
+            border-left: 4px solid #ff6a00;
+        }
+
+
+        .responsibility-item h3 {
+            color: #1e3a8a;
+
+            font-size: 17px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .responsibility-item p {
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            margin-top: 70px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7ed,
+                    #eff6ff
+                );
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            padding: 45px 30px;
+
+            text-align: center;
+        }
+
+
+        .cta h2 {
+            color: #172554;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .cta p {
+            color: #64748b;
+
+            margin-bottom: 22px;
+        }
+
+
+        .cta-button {
+            display: inline-block;
+
+            background: #ff6a00;
+
+            color: white;
+
+            padding: 12px 24px;
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            font-size: 14px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .cta-button:hover {
+            background: #ea580c;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #172554;
+
+            color: white;
+
+            padding: 45px 7% 25px;
+        }
+
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr;
+
+            gap: 45px;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+
+        footer h3 {
+            margin-bottom: 12px;
+        }
+
+
+        footer p,
+        footer a {
+            color: #cbd5e1;
+
+            font-size: 13px;
+        }
+
+
+        footer a {
+            display: block;
+
+            margin-bottom: 7px;
+        }
+
+
+        footer a:hover {
+            color: #ffb27a;
+        }
+
+
+        .footer-bottom {
+            max-width: 1200px;
+
+            margin: 35px auto 0;
+
+            padding-top: 18px;
+
+            border-top: 1px solid rgba(255,255,255,0.12);
+
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .members-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .responsibility-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .top-bar {
+                display: none;
+            }
+
+
+            .navbar {
+                min-height: 68px;
+            }
+
+
+            .hero {
+                padding: 55px 7%;
+            }
+
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+
+            .hero p {
+                font-size: 15px;
+            }
+
+
+            .container {
+                width: 90%;
+
+                padding: 45px 0;
+            }
+
+
+            .leader-card {
+                flex-direction: column;
+
+                text-align: center;
+
+                padding: 30px 20px;
+            }
+
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .responsibility-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .responsibility {
+                padding: 25px 18px;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOP BAR
+    ========================= -->
+
+    <div class="top-bar">
+
+        <div class="top-left">
+            <span>🇮🇳 Government Service Portal</span>
+            <span>Gram Panchayat</span>
+        </div>
+
+        <div class="top-right">
+            <span>Citizen First</span>
+            <span>Public Service</span>
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                MP
+            </div>
+
+            <div class="brand-text">
+
+                <h2>Meri Panchayat</h2>
+
+                <span>Digital Gram Panchayat Portal</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'about' %}">
+                About
+            </a>
+
+            <a href="{% url 'services' %}">
+                Services
+            </a>
+
+            <a href="{% url 'schemes' %}">
+                Schemes
+            </a>
+
+            <a href="{% url 'members' %}" class="active">
+                Members
+            </a>
+
+            <a href="{% url 'notices' %}">
+                Notices
+            </a>
+
+            <a href="{% url 'development' %}">
+                Development
+            </a>
+
+            <a href="{% url 'contact' %}">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                Gram Panchayat Leadership
+            </span>
+
+            <h1>
+                Panchayat Members
+            </h1>
+
+            <p>
+                Meet the representatives and administrative members
+                working towards transparent governance, public service
+                and the development of our Panchayat.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="container">
+
+
+        <!-- LEADERSHIP -->
+
+        <section class="leader-section">
+
+            <div class="section-header">
+
+                <span>
+                    Leadership
+                </span>
+
+                <h2>
+                    Panchayat Leadership
+                </h2>
+
+                <p>
+                    The Panchayat leadership works with citizens
+                    to address local needs and support community
+                    development.
+                </p>
+
+            </div>
+
+
+            <div class="leader-card">
+
+                <div class="profile-photo">
+                    GP
+                </div>
+
+
+                <div class="leader-info">
+
+                    <h3>
+                        Gram Pradhan
+                    </h3>
+
+                    <div class="designation">
+                        Elected Panchayat Head
+                    </div>
+
+                    <p>
+                        Responsible for providing leadership,
+                        coordinating Panchayat activities and
+                        supporting local development initiatives.
+                    </p>
+
+                    <span class="contact-pill">
+                        📞 Official Panchayat Office
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MEMBERS -->
+
+        <section>
+
+            <div class="section-header">
+
+                <span>
+                    Representatives
+                </span>
+
+                <h2>
+                    Panchayat Team
+                </h2>
+
+                <p>
+                    Panchayat representatives and officials
+                    supporting citizens and local administration.
+                </p>
+
+            </div>
+
+
+            <div class="members-grid">
+
+
+                <!-- MEMBER 1 -->
+
+                <article class="member-card">
+
+                    <div class="member-photo">
+                        UP
+                    </div>
+
+                    <h3>
+                        Up-Pradhan
+                    </h3>
+
+                    <div class="member-role">
+                        Deputy Panchayat Head
+                    </div>
+
+                    <p>
+                        Supports the Panchayat leadership in
+                        administrative and community activities.
+                    </p>
+
+                    <span class="member-contact">
+                        Official Representative
+                    </span>
+
+                </article>
+
+
+                <!-- MEMBER 2 -->
+
+                <article class="member-card">
+
+                    <div class="member-photo">
+                        PS
+                    </div>
+
+                    <h3>
+                        Panchayat Secretary
+                    </h3>
+
+                    <div class="member-role">
+                        Administrative Officer
+                    </div>
+
+                    <p>
+                        Supports official records, documentation
+                        and Panchayat administrative work.
+                    </p>
+
+                    <span class="member-contact">
+                        Panchayat Office
+                    </span>
+
+                </article>
+
+
+                <!-- MEMBER 3 -->
+
+                <article class="member-card">
+
+                    <div class="member-photo">
+                        WM
+                    </div>
+
+                    <h3>
+                        Ward Members
+                    </h3>
+
+                    <div class="member-role">
+                        Elected Representatives
+                    </div>
+
+                    <p>
+                        Represent citizens and participate in
+                        local development and Panchayat meetings.
+                    </p>
+
+                    <span class="member-contact">
+                        Ward Representatives
+                    </span>
+
+                </article>
+
+
+                <!-- MEMBER 4 -->
+
+                <article class="member-card">
+
+                    <div class="member-photo">
+                        VC
+                    </div>
+
+                    <h3>
+                        Village Committee
+                    </h3>
+
+                    <div class="member-role">
+                        Community Coordination
+                    </div>
+
+                    <p>
+                        Supports community participation and
+                        coordination for local initiatives.
+                    </p>
+
+                    <span class="member-contact">
+                        Community Office
+                    </span>
+
+                </article>
+
+
+                <!-- MEMBER 5 -->
+
+                <article class="member-card">
+
+                    <div class="member-photo">
+                        DC
+                    </div>
+
+                    <h3>
+                        Development Committee
+                    </h3>
+
+                    <div class="member-role">
+                        Development Support
+                    </div>
+
+                    <p>
+                        Supports planning and monitoring of
+                        Panchayat development activities.
+                    </p>
+
+                    <span class="member-contact">
+                        Development Team
+                    </span>
+
+                </article>
+
+
+                <!-- MEMBER 6 -->
+
+                <article class="member-card">
+
+                    <div class="member-photo">
+                        CS
+                    </div>
+
+                    <h3>
+                        Community Support
+                    </h3>
+
+                    <div class="member-role">
+                        Citizen Coordination
+                    </div>
+
+                    <p>
+                        Helps coordinate citizen participation
+                        and public service activities.
+                    </p>
+
+                    <span class="member-contact">
+                        Citizen Support
+                    </span>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESPONSIBILITIES
+        ========================= -->
+
+        <section class="responsibility">
+
+            <h2>
+                Panchayat Responsibilities
+            </h2>
+
+
+            <div class="responsibility-grid">
+
+
+                <div class="responsibility-item">
+
+                    <h3>
+                        🏛️ Local Governance
+                    </h3>
+
+                    <p>
+                        Supporting transparent and accountable
+                        local administration.
+                    </p>
+
+                </div>
+
+
+                <div class="responsibility-item">
+
+                    <h3>
+                        🛣️ Development
+                    </h3>
+
+                    <p>
+                        Supporting infrastructure and
+                        community development activities.
+                    </p>
+
+                </div>
+
+
+                <div class="responsibility-item">
+
+                    <h3>
+                        👥 Citizen Services
+                    </h3>
+
+                    <p>
+                        Helping citizens access Panchayat
+                        services and information.
+                    </p>
+
+                </div>
+
+
+                <div class="responsibility-item">
+
+                    <h3>
+                        📢 Public Communication
+                    </h3>
+
+                    <p>
+                        Sharing important notices and
+                        Panchayat information with citizens.
+                    </p>
+
+                </div>
+
+
+                <div class="responsibility-item">
+
+                    <h3>
+                        💧 Basic Services
+                    </h3>
+
+                    <p>
+                        Supporting issues related to basic
+                        local public services.
+                    </p>
+
+                </div>
+
+
+                <div class="responsibility-item">
+
+                    <h3>
+                        🤝 Community Participation
+                    </h3>
+
+                    <p>
+                        Encouraging citizens to participate
+                        in local governance.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================= -->
+
+        <section class="cta">
+
+            <h2>
+                Need Help from the Panchayat?
+            </h2>
+
+            <p>
+                Submit your complaint or contact the Panchayat
+                office for assistance.
+            </p>
+
+            <a href="{% url 'submit_complaint' %}"
+               class="cta-button">
+
+                Submit a Complaint →
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    Meri Panchayat
+                </h3>
+
+                <p>
+                    Digital platform for citizen services,
+                    Panchayat information, public notices
+                    and local development updates.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'services' %}">
+                    Services
+                </a>
+
+                <a href="{% url 'notices' %}">
+                    Notices
+                </a>
+
+                <a href="{% url 'development' %}">
+                    Development
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Citizen
+                </h3>
+
+                <a href="{% url 'submit_complaint' %}">
+                    Submit Complaint
+                </a>
+
+                <a href="{% url 'track_complaint' %}">
+                    Track Complaint
+                </a>
+
+                <a href="{% url 'contact' %}">
+                    Contact Panchayat
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Meri Panchayat · Digital Gram Panchayat Portal
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

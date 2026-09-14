@@ -1,0 +1,432 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Citizen Registration | Meri Panchayat</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'panchayat/signup.css' %}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <a href="{% url 'home' %}" class="brand">
+
+        <div class="brand-icon">
+            🏛️
+        </div>
+
+        <div class="brand-text">
+
+            <strong>Meri Panchayat</strong>
+
+            <span>
+                Gram Panchayat Reuri
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <div class="nav-right">
+
+        <span>
+            Already registered?
+        </span>
+
+        <a
+            href="{% url 'login' %}"
+            class="login-link"
+        >
+            Login
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="page">
+
+
+    <div class="signup-card">
+
+
+        <!-- LEFT SIDE -->
+
+        <section class="intro">
+
+            <div class="intro-badge">
+                CITIZEN PORTAL
+            </div>
+
+            <h1>
+                Join Meri Panchayat
+            </h1>
+
+            <p>
+                Create your citizen account to access
+                Panchayat services, submit complaints,
+                track requests and receive important
+                village updates.
+            </p>
+
+
+            <div class="features">
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        📝
+                    </div>
+
+                    <div>
+                        <h3>
+                            Submit Complaints
+                        </h3>
+
+                        <p>
+                            Report local problems directly
+                            to the Panchayat.
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        🔎
+                    </div>
+
+                    <div>
+                        <h3>
+                            Track Complaints
+                        </h3>
+
+                        <p>
+                            Check the progress of your
+                            submitted complaints.
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        🔔
+                    </div>
+
+                    <div>
+                        <h3>
+                            Get Updates
+                        </h3>
+
+                        <p>
+                            Stay informed about Panchayat
+                            notices and activities.
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <section class="form-area">
+
+
+            <div class="form-heading">
+
+                <div class="form-icon">
+                    👤
+                </div>
+
+                <div>
+
+                    <h2>
+                        Create Account
+                    </h2>
+
+                    <p>
+                        Register as a citizen
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            {% if messages %}
+
+                <div class="messages">
+
+                    {% for message in messages %}
+
+                        <div class="message">
+                            {{ message }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+
+
+            <form
+                method="POST"
+                action="{% url 'signup' %}"
+            >
+
+                {% csrf_token %}
+
+
+                <!-- Username -->
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <div class="input-box">
+
+                        <span>👤</span>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                    <small>
+                        Use a unique username for your account.
+                    </small>
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <span>🔒</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            onclick="togglePassword('password', this)"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Confirm Password -->
+
+                <div class="form-group">
+
+                    <label for="confirm_password">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <span>🔐</span>
+
+                        <input
+                            type="password"
+                            id="confirm_password"
+                            name="confirm_password"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            onclick="togglePassword('confirm_password', this)"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Terms -->
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        required
+                    >
+
+                    <span>
+                        I agree to use this portal responsibly
+                        and provide accurate information.
+                    </span>
+
+                </label>
+
+
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="signup-btn"
+                >
+
+                    Create Citizen Account
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+
+            <div class="bottom-login">
+
+                Already have an account?
+
+                <a href="{% url 'login' %}">
+                    Login here
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Meri Panchayat · Gram Panchayat Reuri
+    </p>
+
+    <span>
+        Citizen Services Portal
+    </span>
+
+</footer>
+
+
+
+<script>
+
+function togglePassword(id, button) {
+
+    const input = document.getElementById(id);
+
+    if (input.type === "password") {
+
+        input.type = "text";
+
+        button.textContent = "Hide";
+
+    } else {
+
+        input.type = "password";
+
+        button.textContent = "Show";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+

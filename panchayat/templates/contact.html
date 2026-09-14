@@ -1,0 +1,1836 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Contact | Meri Panchayat
+    </title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+
+            background: #1e3a8a;
+
+            color: white;
+
+            padding: 15px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .logo-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            background: #ff6a00;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 23px;
+        }
+
+
+        .logo-text h2 {
+
+            font-size: 20px;
+
+            line-height: 1.2;
+        }
+
+
+        .logo-text span {
+
+            font-size: 12px;
+
+            color: #dbeafe;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 23px;
+        }
+
+
+        .nav-links a {
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            position: relative;
+        }
+
+
+        .nav-links a:hover {
+
+            color: #ff9b5c;
+        }
+
+
+        .nav-links .active {
+
+            color: #ff8a3d;
+        }
+
+
+        .nav-links .active::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: -8px;
+
+            height: 3px;
+
+            background: #ff6a00;
+
+            border-radius: 10px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            min-height: 360px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #172554,
+                    #1e3a8a,
+                    #3155bd
+                );
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            border: 55px solid rgba(255,255,255,0.04);
+
+            border-radius: 50%;
+
+            left: -130px;
+
+            top: -170px;
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            border: 50px solid rgba(255,255,255,0.04);
+
+            border-radius: 50%;
+
+            right: -120px;
+
+            bottom: -160px;
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 800px;
+        }
+
+
+        .hero small {
+
+            color: #ffb37a;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .hero h1 {
+
+            font-size: 48px;
+
+            margin: 12px 0 15px;
+        }
+
+
+        .hero h1 span {
+
+            color: #ff8a3d;
+        }
+
+
+        .hero p {
+
+            color: #e5e7eb;
+
+            font-size: 17px;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
+
+        .container {
+
+            width: 86%;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           CONTACT SECTION
+        ===================================================== */
+
+        .contact-section {
+
+            padding: 80px 0;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .section-title small {
+
+            color: #ff6a00;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+
+        .section-title h2 {
+
+            color: #1e3a8a;
+
+            font-size: 34px;
+
+            margin: 8px 0 12px;
+        }
+
+
+        .section-title p {
+
+            color: #6b7280;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           CONTACT GRID
+        ===================================================== */
+
+        .contact-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1.4fr;
+
+            gap: 30px;
+
+            align-items: stretch;
+        }
+
+
+        /* =====================================================
+           CONTACT INFO
+        ===================================================== */
+
+        .contact-info {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #1e3a8a,
+                    #274bb0
+                );
+
+            color: white;
+
+            padding: 38px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 12px 30px rgba(30,58,138,0.18);
+        }
+
+
+        .contact-info h3 {
+
+            font-size: 26px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .contact-info > p {
+
+            color: #dbeafe;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .contact-item {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+
+            align-items: flex-start;
+        }
+
+
+        .contact-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            min-width: 48px;
+
+            background: rgba(255,255,255,0.12);
+
+            border-radius: 10px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 22px;
+        }
+
+
+        .contact-item h4 {
+
+            font-size: 16px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .contact-item p {
+
+            color: #dbeafe;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           CONTACT FORM
+        ===================================================== */
+
+        .contact-form {
+
+            background: white;
+
+            padding: 38px;
+
+            border-radius: 18px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.07);
+        }
+
+
+        .contact-form h3 {
+
+            color: #1e3a8a;
+
+            font-size: 26px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .contact-form > p {
+
+            color: #6b7280;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 18px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            color: #374151;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 8px;
+
+            padding: 12px 13px;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.3s;
+
+            background: #fff;
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #ff6a00;
+
+            box-shadow:
+                0 0 0 3px rgba(255,106,0,0.10);
+        }
+
+
+        .form-group textarea {
+
+            min-height: 130px;
+
+            resize: vertical;
+        }
+
+
+        .submit-btn {
+
+            border: none;
+
+            background: #ff6a00;
+
+            color: white;
+
+            padding: 13px 27px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .submit-btn:hover {
+
+            background: #e85d00;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 7px 18px rgba(255,106,0,0.25);
+        }
+
+
+        /* =====================================================
+           QUICK CONTACT CARDS
+        ===================================================== */
+
+        .quick-section {
+
+            padding: 20px 0 80px;
+        }
+
+
+        .quick-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .quick-card {
+
+            background: white;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            border: 1px solid #e5e7eb;
+
+            transition: 0.3s;
+        }
+
+
+        .quick-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 12px 28px rgba(0,0,0,0.09);
+
+            border-color: #ff6a00;
+        }
+
+
+        .quick-icon {
+
+            width: 60px;
+
+            height: 60px;
+
+            margin: auto auto 16px;
+
+            background: #fff1e8;
+
+            color: #ff6a00;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 27px;
+        }
+
+
+        .quick-card h3 {
+
+            color: #1e3a8a;
+
+            margin-bottom: 8px;
+        }
+
+
+        .quick-card p {
+
+            color: #6b7280;
+
+            font-size: 14px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .quick-card a {
+
+            color: #ff6a00;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           HELP SECTION
+        ===================================================== */
+
+        .help-section {
+
+            padding: 75px 0;
+
+            background: white;
+
+            border-top: 1px solid #e5e7eb;
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+
+        .help-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 35px;
+
+            align-items: center;
+        }
+
+
+        .help-text h2 {
+
+            color: #1e3a8a;
+
+            font-size: 32px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .help-text p {
+
+            color: #6b7280;
+
+            font-size: 15px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .help-list {
+
+            list-style: none;
+        }
+
+
+        .help-list li {
+
+            margin-bottom: 10px;
+
+            color: #374151;
+
+            font-size: 14px;
+        }
+
+
+        .help-list li::before {
+
+            content: "✓";
+
+            color: #ff6a00;
+
+            font-weight: bold;
+
+            margin-right: 10px;
+        }
+
+
+        .help-box {
+
+            background: #fff7ed;
+
+            padding: 35px;
+
+            border-left: 5px solid #ff6a00;
+
+            border-radius: 12px;
+        }
+
+
+        .help-box h3 {
+
+            color: #1e3a8a;
+
+            font-size: 23px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .help-box p {
+
+            color: #6b7280;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .home-btn {
+
+            display: inline-block;
+
+            background: #1e3a8a;
+
+            color: white;
+
+            padding: 11px 21px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .home-btn:hover {
+
+            background: #172554;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #172554;
+
+            color: white;
+
+            padding: 55px 7% 20px;
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 35px;
+
+            margin-bottom: 40px;
+        }
+
+
+        .footer-column h3 {
+
+            color: #ff8a3d;
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .footer-column p {
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        .footer-column a {
+
+            display: block;
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+
+            margin-bottom: 9px;
+
+            transition: 0.3s;
+        }
+
+
+        .footer-column a:hover {
+
+            color: #ff8a3d;
+
+            padding-left: 4px;
+        }
+
+
+        .footer-bottom {
+
+            border-top: 1px solid #334155;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+
+                gap: 12px;
+            }
+
+
+            .nav-links a {
+
+                font-size: 12px;
+            }
+
+
+            .contact-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                gap: 16px;
+
+                padding: 15px 5%;
+            }
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+            }
+
+
+            .nav-links .active::after {
+
+                display: none;
+            }
+
+
+            .hero {
+
+                padding: 55px 20px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 36px;
+            }
+
+
+            .hero p {
+
+                font-size: 15px;
+            }
+
+
+            .container {
+
+                width: 90%;
+            }
+
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .quick-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .help-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar">
+
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🏛️
+            </div>
+
+
+            <div class="logo-text">
+
+                <h2>
+                    Meri Panchayat
+                </h2>
+
+                <span>
+                    Gram Panchayat Reuri
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+
+            <a href="{% url 'about' %}">
+                About
+            </a>
+
+
+            <a href="{% url 'services' %}">
+                Services
+            </a>
+
+
+            <a href="{% url 'submit_complaint' %}">
+                Complaint
+            </a>
+
+
+            <a href="{% url 'notices' %}">
+                Notices
+            </a>
+
+
+            <a href="{% url 'development' %}">
+                Development
+            </a>
+
+
+            <a href="{% url 'contact' %}"
+               class="active">
+                Contact
+            </a>
+
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+
+        <div class="hero-content">
+
+
+            <small>
+                GRAM PANCHAYAT REURI
+            </small>
+
+
+            <h1>
+                Contact
+                <span>Us</span>
+            </h1>
+
+
+            <p>
+                Get in touch with Gram Panchayat Reuri
+                for information, assistance, complaints
+                and citizen services.
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT MAIN
+    ====================================================== -->
+
+    <section class="contact-section">
+
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+
+                <small>
+                    CITIZEN SUPPORT
+                </small>
+
+
+                <h2>
+                    How Can We Help You?
+                </h2>
+
+
+                <p>
+                    Citizens can contact the Panchayat for
+                    information, assistance and support
+                    related to local services.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="contact-grid">
+
+
+                <!-- CONTACT INFORMATION -->
+
+                <div class="contact-info">
+
+
+                    <h3>
+                        Panchayat Information
+                    </h3>
+
+
+                    <p>
+                        Contact information for citizens
+                        seeking assistance from Gram
+                        Panchayat Reuri.
+                    </p>
+
+
+
+                    <div class="contact-item">
+
+
+                        <div class="contact-icon">
+                            📍
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Address
+                            </h4>
+
+                            <p>
+                                Gram Panchayat Reuri
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="contact-item">
+
+
+                        <div class="contact-icon">
+                            📞
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Phone
+                            </h4>
+
+                            <p>
+                                Panchayat Office Contact
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="contact-item">
+
+
+                        <div class="contact-icon">
+                            ✉️
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Email
+                            </h4>
+
+                            <p>
+                                Official Panchayat Email
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="contact-item">
+
+
+                        <div class="contact-icon">
+                            🕘
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Office Hours
+                            </h4>
+
+                            <p>
+                                Working Hours
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- CONTACT FORM -->
+
+                <div class="contact-form">
+
+
+                    <h3>
+                        Send a Message
+                    </h3>
+
+
+                    <p>
+                        Fill in the details below to send
+                        your enquiry to the Panchayat.
+                    </p>
+
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <div class="form-row">
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Enter your name"
+                                >
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Mobile Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    name="mobile"
+                                    placeholder="Enter mobile number"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="form-row">
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Enter email address"
+                                >
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Subject
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    placeholder="Enter subject"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Enquiry Type
+                            </label>
+
+                            <select name="category">
+
+                                <option value="">
+                                    Select enquiry type
+                                </option>
+
+                                <option value="general">
+                                    General Information
+                                </option>
+
+                                <option value="complaint">
+                                    Complaint Assistance
+                                </option>
+
+                                <option value="development">
+                                    Development Work
+                                </option>
+
+                                <option value="scheme">
+                                    Government Scheme
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Message
+                            </label>
+
+                            <textarea
+                                name="message"
+                                placeholder="Write your message here..."
+                            ></textarea>
+
+                        </div>
+
+
+
+                        <button
+                            type="submit"
+                            class="submit-btn">
+
+                            Send Message →
+
+                        </button>
+
+
+                    </form>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         QUICK CONTACT
+    ====================================================== -->
+
+    <section class="quick-section">
+
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <small>
+                    QUICK ASSISTANCE
+                </small>
+
+                <h2>
+                    Citizen Help Options
+                </h2>
+
+                <p>
+                    Use the appropriate option according
+                    to your requirement.
+                </p>
+
+            </div>
+
+
+
+            <div class="quick-grid">
+
+
+                <div class="quick-card">
+
+
+                    <div class="quick-icon">
+                        📝
+                    </div>
+
+
+                    <h3>
+                        Complaint
+                    </h3>
+
+
+                    <p>
+                        Have a local issue?
+                        Submit a complaint online.
+                    </p>
+
+
+                    <a href="{% url 'submit_complaint' %}">
+                        Submit Complaint →
+                    </a>
+
+
+                </div>
+
+
+
+                <div class="quick-card">
+
+
+                    <div class="quick-icon">
+                        🔍
+                    </div>
+
+
+                    <h3>
+                        Track Complaint
+                    </h3>
+
+
+                    <p>
+                        Already submitted a complaint?
+                        Check its current status.
+                    </p>
+
+
+                    <a href="{% url 'track_complaint' %}">
+                        Track Complaint →
+                    </a>
+
+
+                </div>
+
+
+
+                <div class="quick-card">
+
+
+                    <div class="quick-icon">
+                        📢
+                    </div>
+
+
+                    <h3>
+                        Public Notices
+                    </h3>
+
+
+                    <p>
+                        View official announcements
+                        and Panchayat notices.
+                    </p>
+
+
+                    <a href="{% url 'notices' %}">
+                        View Notices →
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HELP SECTION
+    ====================================================== -->
+
+    <section class="help-section">
+
+
+        <div class="container">
+
+
+            <div class="help-grid">
+
+
+                <div class="help-text">
+
+
+                    <h2>
+                        Citizen Support
+                    </h2>
+
+
+                    <p>
+                        Meri Panchayat aims to make
+                        Panchayat services easier and
+                        more accessible for citizens.
+                    </p>
+
+
+                    <ul class="help-list">
+
+                        <li>
+                            Get information about Panchayat services
+                        </li>
+
+                        <li>
+                            Get assistance with complaints
+                        </li>
+
+                        <li>
+                            Learn about development activities
+                        </li>
+
+                        <li>
+                            Access official public notices
+                        </li>
+
+                        <li>
+                            Share suggestions and enquiries
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+
+
+                <div class="help-box">
+
+
+                    <h3>
+                        Looking for a Service?
+                    </h3>
+
+
+                    <p>
+                        Explore all available citizen
+                        services through the Meri Panchayat
+                        portal.
+                    </p>
+
+
+                    <a href="{% url 'services' %}"
+                       class="home-btn">
+
+                        Explore Services
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-column">
+
+
+                <h3>
+                    Meri Panchayat
+                </h3>
+
+
+                <p>
+                    Digital citizen platform for Gram
+                    Panchayat Reuri. The portal provides
+                    accessible information and citizen
+                    services through a single platform.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+
+                <h3>
+                    Quick Links
+                </h3>
+
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+
+                <a href="{% url 'about' %}">
+                    About
+                </a>
+
+
+                <a href="{% url 'services' %}">
+                    Services
+                </a>
+
+
+                <a href="{% url 'notices' %}">
+                    Notices
+                </a>
+
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+
+                <h3>
+                    Citizen
+                </h3>
+
+
+                <a href="{% url 'submit_complaint' %}">
+                    Submit Complaint
+                </a>
+
+
+                <a href="{% url 'track_complaint' %}">
+                    Track Complaint
+                </a>
+
+
+                <a href="{% url 'development' %}">
+                    Development
+                </a>
+
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+
+                <h3>
+                    Contact
+                </h3>
+
+
+                <a href="{% url 'contact' %}">
+                    Contact Us
+                </a>
+
+
+                <a href="{% url 'profile' %}">
+                    My Profile
+                </a>
+
+
+                <a href="{% url 'home' %}">
+                    Citizen Portal
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            © 2026 Meri Panchayat | Gram Panchayat Reuri
+
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+
