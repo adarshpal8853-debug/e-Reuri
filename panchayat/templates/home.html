@@ -1,932 +1,469 @@
+
 {% load static %}
 
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Meri Panchayat | Gram Panchayat Reuri</title>
+    <title>Meri Panchayat | Gram Panchayat Reuri</title>
 
-<link rel="stylesheet"
-      href="{% static 'panchayat/style.css' %}">
-
+    <link rel="stylesheet"
+          href="{% static 'panchayat/style.css' %}">
 
 </head>
 
+
 <body>
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
 
 <nav class="navbar">
 
-    <div class="navbar-brand">
-        <div class="brand-icon">🏛️</div>
+    <!-- BRAND -->
 
-        <div>
-            <h2>Meri Panchayat</h2>
-            <span>Gram Panchayat Reuri</span>
+    <a href="{% url 'home' %}" class="brand">
+
+        <div class="logo-icon">
+            🏛️
         </div>
-    </div>
 
+        <div class="brand-text">
+
+            <h2>Meri Panchayat</h2>
+
+            <span>Gram Panchayat Reuri</span>
+
+        </div>
+
+    </a>
+
+
+    <!-- RIGHT SIDE -->
 
     <div class="navbar-actions">
 
-        <!-- Login -->
-        <a href="{% url 'login' %}" class="login-btn">
+        <a href="{% url 'login' %}"
+           class="login-btn">
             Login
         </a>
 
-        <!-- Sign Up -->
-        <a href="{% url 'signup' %}" class="signup-btn">
+        <a href="{% url 'signup' %}"
+           class="signup-btn">
             Sign Up
         </a>
 
-        <!-- Hamburger -->
-        <button class="menu-btn" onclick="toggleMenu()">
+        <button
+            class="menu-toggle"
+            onclick="toggleMenu()"
+            type="button"
+            aria-label="Open Menu"
+            aria-expanded="false">
+
             <span></span>
             <span></span>
             <span></span>
+
         </button>
+
+    </div>
+
+
+    <!-- MENU -->
+
+    <div class="nav-menu" id="navMenu">
+
+        <a href="{% url 'home' %}">
+            🏠 Home
+        </a>
+
+        <a href="{% url 'about' %}">
+            ℹ️ About
+        </a>
+
+        <a href="{% url 'services' %}">
+            🛠️ Services
+        </a>
+
+        <a href="{% url 'schemes' %}">
+            🏛️ Government Schemes
+        </a>
+
+        <a href="{% url 'members' %}">
+            👥 Panchayat Members
+        </a>
+
+        <a href="{% url 'funds' %}">
+            💰 Panchayat Funds
+        </a>
+
+        <a href="{% url 'notices' %}">
+            📢 Notices
+        </a>
+
+        <a href="{% url 'development' %}">
+            🏗️ Development Works
+        </a>
+
+        <a href="{% url 'meetings' %}">
+            📅 Gram Sabha Meetings
+        </a>
+
+        <a href="{% url 'submit_complaint' %}">
+            📝 Submit Complaint
+        </a>
+
+        <a href="{% url 'track_complaint' %}">
+            🔍 Track Complaint
+        </a>
+
+        <a href="{% url 'contact' %}">
+            📞 Contact
+        </a>
+
+        <a href="{% url 'dashboard' %}">
+            📊 Citizen Dashboard
+        </a>
+
+        <a href="{% url 'profile' %}">
+            👤 My Profile
+        </a>
+
+        <hr>
+
+        <a href="{% url 'login' %}">
+            🔐 Login
+        </a>
+
+        <a href="{% url 'signup' %}">
+            ✨ Create Account
+        </a>
 
     </div>
 
 </nav>
 
 
-<!-- =========================
-     MENU
-========================= -->
 
-<div id="menu" class="side-menu">
-
-    <a href="{% url 'home' %}">Home</a>
-
-    <a href="{% url 'about' %}">About</a>
-
-    <a href="{% url 'services' %}">Services</a>
-
-    <a href="{% url 'development' %}">Development</a>
-
-    <a href="{% url 'notices' %}">Notices</a>
-
-    <a href="{% url 'meetings' %}">Gram Sabha Meetings</a>
-
-    <a href="{% url 'schemes' %}">Government Schemes</a>
-
-    <a href="{% url 'members' %}">Panchayat Members</a>
-
-    <a href="{% url 'funds' %}">Panchayat Funds</a>
-
-    <a href="{% url 'contact' %}">Contact</a>
-
-</div>
-
-<!-- =========================
-     HERO SECTION
-========================= -->
+<!-- ==================================================
+     HERO
+================================================== -->
 
 <section class="hero">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-
-    <p class="welcome">
-
-        WELCOME TO
-
-    </p>
-
-
-    <h1>
-
-        Meri Panchayat
-
-    </h1>
-
-
-    <h2>
-
-        Gram Panchayat Reuri
-
-    </h2>
-
-
-    <p>
-
-        A digital platform connecting citizens
-        with their Panchayat for transparent,
-        accessible and citizen-friendly services.
-
-    </p>
-
-
-    <div class="hero-buttons">
-
-
-        <a href="#services"
-           class="btn primary">
-
-            Explore Services
-
-        </a>
-
-
-        <a href="#complaint"
-           class="btn secondary">
-
-            Submit Complaint
-
-        </a>
-
-
-    </div>
-
-
-</div>
-
-
-</section>
-
-<!-- =========================
-     QUICK ACCESS
-========================= -->
-
-<section class="quick-access">
-
-<div class="quick-access-title">
-
-    <p>
-        QUICK ACCESS
-    </p>
-
-
-    <h2>
-        Important Panchayat Services
-    </h2>
-
-
-    <span>
-        Frequently used services — easily accessible on mobile
-    </span>
-
-
-</div>
-
-
-<div class="quick-buttons">
-
-
-    <a href="{% url 'services' %}"
-       class="quick-btn">
-
-        <span>🛠️</span>
-
-        <div>
-
-            <strong>
-                Services
-            </strong>
-
-            <small>
-                Panchayat Services
-            </small>
-
-        </div>
-
-    </a>
-
-
-    <a href="{% url 'funds' %}"
-       class="quick-btn">
-
-        <span>💰</span>
-
-        <div>
-
-            <strong>
-                Funds
-            </strong>
-
-            <small>
-                Fund Transparency
-            </small>
-
-        </div>
-
-    </a>
-
-
-    <a href="{% url 'submit_complaint' %}"
-       class="quick-btn">
-
-        <span>📝</span>
-
-        <div>
-
-            <strong>
-                Complaint
-            </strong>
-
-            <small>
-                Report a Problem
-            </small>
-
-        </div>
-
-    </a>
-
-
-    <a href="{% url 'track_complaint' %}"
-       class="quick-btn">
-
-        <span>🔍</span>
-
-        <div>
-
-            <strong>
-                Track Complaint
-            </strong>
-
-            <small>
-                Check Status
-            </small>
-
-        </div>
-
-    </a>
-
-
-    <a href="{% url 'notices' %}"
-       class="quick-btn">
-
-        <span>📢</span>
-
-        <div>
-
-            <strong>
-                Notices
-            </strong>
-
-            <small>
-                Latest Updates
-            </small>
-
-        </div>
-
-    </a>
-
-</div>
-
-
-</section>
-
-<!-- =========================
-     STATISTICS
-========================= -->
-
-<section class="stats">
-
-
-<div class="stat-card">
-
-    <div class="stat-icon">
-        🌐
-    </div>
-
-    <h2>
-        24/7
-    </h2>
-
-    <p>
-        Online Access
-    </p>
-
-</div>
-
-
-<div class="stat-card">
-
-    <div class="stat-icon">
-        👥
-    </div>
-
-    <h2>
-        100%
-    </h2>
-
-    <p>
-        Citizen Focused
-    </p>
-
-</div>
-
-
-<div class="stat-card">
-
-    <div class="stat-icon">
-        🏛️
-    </div>
-
-    <h2>
-        1
-    </h2>
-
-    <p>
-        Digital Panchayat
-    </p>
-
-</div>
-
-
-<div class="stat-card">
-
-    <div class="stat-icon">
-        🤝
-    </div>
-
-    <h2>
-        ∞
-    </h2>
-
-    <p>
-        Citizen Support
-    </p>
-
-</div>
-
-
-</section>
-
-
-<!-- =========================
-     ABOUT SECTION
-========================= -->
-
-<section class="section" id="about">
-
-
-<div class="section-title">
-
-    <p>
-        ABOUT US
-    </p>
-
-    <h2>
-        About Gram Panchayat Reuri
-    </h2>
-
-</div>
-
-
-<div class="about-box">
-
-    <p>
-
-        <strong>Meri Panchayat</strong>
-        is a digital initiative for the
-        residents of Gram Panchayat Reuri.
-
-    </p>
-
-
-    <p>
-
-        The platform provides citizens with
-        important Panchayat information,
-        public notices, government services,
-        development updates and a direct
-        way to submit complaints.
-
-    </p>
-
-
-    <p>
-
-        Our objective is to make Panchayat
-        administration more transparent,
-        accessible and responsive to citizens.
-
-    </p>
-
-</div>
-
-
-</section>
-
-<!-- =========================
-     SERVICES SECTION
-========================= -->
-
-<section class="section services"
-         id="services">
-
-```
-<div class="section-title">
-
-    <p>
-        OUR SERVICES
-    </p>
-
-    <h2>
-        Panchayat Services
-    </h2>
-
-    <span>
-        Digital services for Gram Panchayat Reuri citizens
-    </span>
-
-</div>
-
-
-<div class="service-grid">
-
-
-    <!-- NOTICE -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            📢
-        </div>
-
-        <h3>
-            Notices
-        </h3>
-
-        <p>
-            View latest Panchayat notices,
-            announcements and important
-            public information.
+        <p class="welcome-text">
+            W E L C O M E&nbsp;&nbsp; T O
         </p>
 
-        <a href="{% url 'notices' %}">
-            View Notices →
-        </a>
-
-    </div>
-
-
-
-    <!-- CERTIFICATES -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            📄
-        </div>
-
-        <h3>
-            Certificates
-        </h3>
-
-        <p>
-            Get information about Panchayat
-            certificates, documents and
-            application requirements.
-        </p>
-
-        <a href="{% url 'services' %}">
-            Learn More →
-        </a>
-
-    </div>
-
-
-
-    <!-- PANCHAYAT SERVICES -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            🏠
-        </div>
-
-        <h3>
-            Panchayat Services
-        </h3>
-
-        <p>
-            Access information about important
-            local Panchayat services available
-            for citizens.
-        </p>
-
-        <a href="{% url 'services' %}">
-            View Services →
-        </a>
-
-    </div>
-
-
-
-    <!-- DEVELOPMENT -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            🏗️
-        </div>
-
-        <h3>
-            Development Works
-        </h3>
-
-        <p>
-            View village development activities,
-            infrastructure projects and
-            public works.
-        </p>
-
-        <a href="{% url 'development' %}">
-            View Development →
-        </a>
-
-    </div>
-
-
-
-    <!-- FUNDS -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            💰
-        </div>
-
-        <h3>
-            Panchayat Funds
-        </h3>
-
-        <p>
-            View Panchayat fund information,
-            expenditure and remaining funds
-            for transparency.
-        </p>
-
-        <a href="{% url 'funds' %}">
-            View Funds →
-        </a>
-
-    </div>
-
-
-
-    <!-- MEETINGS -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            📅
-        </div>
-
-        <h3>
-            Gram Sabha Meetings
-        </h3>
-
-        <p>
-            Check Gram Sabha meeting dates,
-            timings, venues and important
-            meeting information.
-        </p>
-
-        <a href="{% url 'meetings' %}">
-            View Meetings →
-        </a>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =========================
-     COMPLAINT SECTION
-========================= -->
-
-<section class="complaint-section"
-         id="complaint">
-
-
-<div class="complaint-content">
-
-
-    <!-- LEFT CONTENT -->
-
-    <div class="complaint-intro">
-
-        <p class="welcome">
-            CITIZEN SUPPORT
-        </p>
-
+        <h1>
+            Meri Panchayat
+        </h1>
 
         <h2>
-            Have a Problem?
+            Gram Panchayat Reuri
         </h2>
 
+        <p class="hero-description">
 
-        <p>
-
-            If you are facing any problem
-            related to roads, water,
-            sanitation, street lights,
-            drainage or other Panchayat
-            services, you can submit your
-            complaint directly through
-            the online system.
+            A digital platform connecting citizens
+            with their Panchayat for transparent,
+            accessible and citizen-friendly services.
 
         </p>
 
+        <div class="hero-buttons">
 
-        <div class="complaint-points">
+            <a href="{% url 'services' %}"
+               class="primary-btn">
 
-            <span>
-                ✓ Easy Online Complaint
-            </span>
+                Explore Services
 
-            <span>
-                ✓ Complaint ID Generation
-            </span>
+            </a>
 
-            <span>
-                ✓ Track Complaint Status
-            </span>
+            <a href="{% url 'submit_complaint' %}"
+               class="secondary-btn">
 
-            <span>
-                ✓ Transparent Resolution
-            </span>
+                Submit Complaint
 
-        </div>
-
-    </div>
-
-
-
-    <!-- RIGHT CARD -->
-
-    <div class="complaint-card">
-
-
-        <div class="complaint-icon">
-            📝
-        </div>
-
-
-        <h3>
-            Submit Your Complaint
-        </h3>
-
-
-        <p>
-
-            Tell us about your problem.
-            You can also upload an image
-            related to your complaint.
-
-        </p>
-
-
-        <a href="{% url 'submit_complaint' %}"
-           class="btn primary complaint-btn">
-
-            📝 Submit Complaint
-
-        </a>
-
-
-        <a href="{% url 'track_complaint' %}"
-           class="btn secondary">
-
-            🔍 Track Complaint
-
-        </a>
-
-    </div>
-
-
-</div>
-
-
-</section>
-
-<!-- =========================
-     CITIZEN VOICE
-========================= -->
-
-<section class="section">
-
-```
-<div class="section-title">
-
-    <p>
-        CITIZEN VOICE
-    </p>
-
-    <h2>
-        What Can You Report?
-    </h2>
-
-    <span>
-        Report common problems affecting our village
-    </span>
-
-</div>
-
-
-<div class="service-grid">
-
-
-    <!-- WATER -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            🚰
-        </div>
-
-        <h3>
-            Water Problem
-        </h3>
-
-        <p>
-
-            Report water supply,
-            leakage or drinking water
-            related problems.
-
-        </p>
-
-        <a href="{% url 'submit_complaint' %}">
-            Report Problem →
-        </a>
-
-    </div>
-
-
-
-    <!-- ROAD -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            🛣️
-        </div>
-
-        <h3>
-            Road Problem
-        </h3>
-
-        <p>
-
-            Report damaged roads,
-            potholes or drainage
-            related issues.
-
-        </p>
-
-        <a href="{% url 'submit_complaint' %}">
-            Report Problem →
-        </a>
-
-    </div>
-
-
-
-    <!-- STREET LIGHT -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            💡
-        </div>
-
-        <h3>
-            Street Light
-        </h3>
-
-        <p>
-
-            Report damaged or
-            non-working street lights
-            in your area.
-
-        </p>
-
-        <a href="{% url 'submit_complaint' %}">
-            Report Problem →
-        </a>
-
-    </div>
-
-
-
-    <!-- CLEANLINESS -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            🗑️
-        </div>
-
-        <h3>
-            Cleanliness
-        </h3>
-
-        <p>
-
-            Report garbage,
-            sanitation and cleanliness
-            problems.
-
-        </p>
-
-        <a href="{% url 'submit_complaint' %}">
-            Report Problem →
-        </a>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =========================
-     NOTICES SECTION
-========================= -->
-
-<section class="section notices"
-         id="notices">
-
-<div class="section-title">
-
-    <p>
-        LATEST INFORMATION
-    </p>
-
-    <h2>
-        Notices & Announcements
-    </h2>
-
-    <span>
-        Important information and announcements
-        from Gram Panchayat Reuri
-    </span>
-
-</div>
-
-
-<div class="notice-box">
-
-
-    <div class="notice">
-
-        <span>
-            NEW
-        </span>
-
-        <div>
-
-            <h3>
-                Panchayat Announcements
-            </h3>
-
-            <p>
-                Important Panchayat announcements
-                and public information will be
-                displayed for citizens.
-            </p>
-
-            <a href="{% url 'notices' %}">
-                View All Notices →
             </a>
 
         </div>
 
     </div>
 
+</section>
 
 
-    <div class="notice">
+
+<!-- ==================================================
+     QUICK ACCESS
+================================================== -->
+
+<section class="quick-access">
+
+    <div class="quick-access-title">
+
+        <p>
+            QUICK ACCESS
+        </p>
+
+        <h2>
+            Important Panchayat Services
+        </h2>
 
         <span>
-            INFO
+            Frequently used services — easily accessible on mobile
         </span>
 
-        <div>
+    </div>
+
+
+    <div class="quick-buttons">
+
+        <a href="{% url 'services' %}"
+           class="quick-btn">
+
+            <span>🛠️</span>
+
+            <div>
+                <strong>Services</strong>
+                <small>Panchayat Services</small>
+            </div>
+
+        </a>
+
+
+        <a href="{% url 'funds' %}"
+           class="quick-btn">
+
+            <span>💰</span>
+
+            <div>
+                <strong>Funds</strong>
+                <small>Fund Transparency</small>
+            </div>
+
+        </a>
+
+
+        <a href="{% url 'submit_complaint' %}"
+           class="quick-btn">
+
+            <span>📝</span>
+
+            <div>
+                <strong>Complaint</strong>
+                <small>Report a Problem</small>
+            </div>
+
+        </a>
+
+
+        <a href="{% url 'track_complaint' %}"
+           class="quick-btn">
+
+            <span>🔍</span>
+
+            <div>
+                <strong>Track Complaint</strong>
+                <small>Check Status</small>
+            </div>
+
+        </a>
+
+
+        <a href="{% url 'notices' %}"
+           class="quick-btn">
+
+            <span>📢</span>
+
+            <div>
+                <strong>Notices</strong>
+                <small>Latest Updates</small>
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     STATISTICS
+================================================== -->
+
+<section class="stats">
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🌐
+        </div>
+
+        <h2>24/7</h2>
+
+        <p>
+            Online Access
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            👥
+        </div>
+
+        <h2>100%</h2>
+
+        <p>
+            Citizen Focused
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🏛️
+        </div>
+
+        <h2>1</h2>
+
+        <p>
+            Digital Panchayat
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🤝
+        </div>
+
+        <h2>∞</h2>
+
+        <p>
+            Citizen Support
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section class="section" id="about">
+
+    <div class="section-title">
+
+        <p>
+            ABOUT US
+        </p>
+
+        <h2>
+            About Gram Panchayat Reuri
+        </h2>
+
+    </div>
+
+
+    <div class="about-box">
+
+        <p>
+
+            <strong>Meri Panchayat</strong>
+            is a digital initiative for the
+            residents of Gram Panchayat Reuri.
+
+        </p>
+
+
+        <p>
+
+            The platform provides citizens with
+            important Panchayat information,
+            public notices, government services,
+            development updates and a direct
+            way to submit complaints.
+
+        </p>
+
+
+        <p>
+
+            Our objective is to make Panchayat
+            administration more transparent,
+            accessible and responsive to citizens.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SERVICES
+================================================== -->
+
+<section class="section services" id="services">
+
+    <div class="section-title">
+
+        <p>
+            OUR SERVICES
+        </p>
+
+        <h2>
+            Panchayat Services
+        </h2>
+
+        <span>
+            Digital services for Gram Panchayat Reuri citizens
+        </span>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                📢
+            </div>
 
             <h3>
-                Citizen Updates
+                Notices
             </h3>
 
             <p>
-                Citizens can regularly check
-                this section for new updates
-                and important Panchayat information.
+                View latest Panchayat notices,
+                announcements and important
+                public information.
             </p>
 
             <a href="{% url 'notices' %}">
@@ -935,61 +472,67 @@
 
         </div>
 
-    </div>
 
+        <div class="service-card">
 
-</div>
-```
-
-</section>
-
-<!-- =========================
-     DEVELOPMENT SECTION
-========================= -->
-
-<section class="section development"
-         id="development">
-
-```
-<div class="section-title">
-
-    <p>
-        VILLAGE DEVELOPMENT
-    </p>
-
-    <h2>
-        Development Works
-    </h2>
-
-    <span>
-        Information about development activities
-        and public works in the village
-    </span>
-
-</div>
-
-
-<div class="development-box">
-
-
-    <!-- ROAD -->
-
-    <div class="development-item">
-
-        <span>
-            🛣️
-        </span>
-
-        <div>
+            <div class="service-icon">
+                📄
+            </div>
 
             <h3>
-                Roads & Infrastructure
+                Certificates
             </h3>
 
             <p>
-                Information about road construction,
-                repair work and village infrastructure
-                development.
+                Get information about Panchayat
+                certificates, documents and
+                application requirements.
+            </p>
+
+            <a href="{% url 'services' %}">
+                Learn More →
+            </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🏠
+            </div>
+
+            <h3>
+                Panchayat Services
+            </h3>
+
+            <p>
+                Access information about important
+                local Panchayat services available
+                for citizens.
+            </p>
+
+            <a href="{% url 'services' %}">
+                View Services →
+            </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🏗️
+            </div>
+
+            <h3>
+                Development Works
+            </h3>
+
+            <p>
+                View village development activities,
+                infrastructure projects and
+                public works.
             </p>
 
             <a href="{% url 'development' %}">
@@ -998,366 +541,44 @@
 
         </div>
 
-    </div>
 
+        <div class="service-card">
 
-
-    <!-- WATER -->
-
-    <div class="development-item">
-
-        <span>
-            💧
-        </span>
-
-        <div>
+            <div class="service-icon">
+                💰
+            </div>
 
             <h3>
-                Water & Sanitation
+                Panchayat Funds
             </h3>
 
             <p>
-                Updates about water supply,
-                sanitation, drainage and
-                cleanliness initiatives.
+                View Panchayat fund information,
+                expenditure and remaining funds
+                for transparency.
             </p>
 
-            <a href="{% url 'development' %}">
-                View Development →
+            <a href="{% url 'funds' %}">
+                View Funds →
             </a>
 
         </div>
 
-    </div>
 
+        <div class="service-card">
 
-
-    <!-- ENVIRONMENT -->
-
-    <div class="development-item">
-
-        <span>
-            🌳
-        </span>
-
-        <div>
+            <div class="service-icon">
+                📅
+            </div>
 
             <h3>
-                Environment
+                Gram Sabha Meetings
             </h3>
 
             <p>
-                Village cleanliness,
-                plantation and environmental
-                improvement activities.
-            </p>
-
-            <a href="{% url 'development' %}">
-                View Development →
-            </a>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-
-</section>
-
-<!-- =========================
-     GOVERNMENT SCHEMES
-========================= -->
-
-<section class="section schemes"
-         id="schemes">
-
-
-<div class="section-title">
-
-    <p>
-        GOVERNMENT INITIATIVES
-    </p>
-
-    <h2>
-        Government Schemes
-    </h2>
-
-    <span>
-        Important welfare and development
-        schemes for citizens
-    </span>
-
-</div>
-
-
-<div class="service-grid">
-
-
-    <!-- HOUSING -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            🏠
-        </div>
-
-        <h3>
-            Housing Schemes
-        </h3>
-
-        <p>
-            Information about government
-            housing assistance and
-            rural housing schemes.
-        </p>
-
-        <a href="{% url 'schemes' %}">
-            View Schemes →
-        </a>
-
-    </div>
-
-
-
-    <!-- WATER -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            🚰
-        </div>
-
-        <h3>
-            Water Schemes
-        </h3>
-
-        <p>
-            Information about drinking
-            water supply and rural
-            water-related initiatives.
-        </p>
-
-        <a href="{% url 'schemes' %}">
-            View Schemes →
-        </a>
-
-    </div>
-
-
-
-    <!-- EMPLOYMENT -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            👷
-        </div>
-
-        <h3>
-            Employment Schemes
-        </h3>
-
-        <p>
-            Information about rural
-            employment and livelihood
-            support programmes.
-        </p>
-
-        <a href="{% url 'schemes' %}">
-            View Schemes →
-        </a>
-
-    </div>
-
-
-
-    <!-- PENSION -->
-
-    <div class="service-card">
-
-        <div class="service-icon">
-            👴
-        </div>
-
-        <h3>
-            Pension Schemes
-        </h3>
-
-        <p>
-            Information about eligible
-            citizens and government
-            social security assistance.
-        </p>
-
-        <a href="{% url 'schemes' %}">
-            View Schemes →
-        </a>
-
-    </div>
-
-
-</div>
-
-
-</section>
-
-<!-- =========================
-     PANCHAYAT MEMBERS
-========================= -->
-
-<section class="section members"
-         id="members">
-
-<div class="section-title">
-
-    <p>
-        PANCHAYAT TEAM
-    </p>
-
-    <h2>
-        Panchayat Members
-    </h2>
-
-    <span>
-        Meet the representatives serving
-        Gram Panchayat Reuri
-    </span>
-
-</div>
-
-
-<div class="service-grid">
-
-
-    <!-- PRADHAN -->
-
-    <div class="service-card member-card">
-
-        <div class="service-icon">
-            👨‍💼
-        </div>
-
-        <h3>
-            Gram Pradhan
-        </h3>
-
-        <p>
-            Elected representative responsible
-            for Panchayat administration,
-            development and citizen welfare.
-        </p>
-
-        <a href="{% url 'members' %}">
-            View Member →
-        </a>
-
-    </div>
-
-
-
-    <!-- PANCHAYAT SECRETARY -->
-
-    <div class="service-card member-card">
-
-        <div class="service-icon">
-            🧑‍💼
-        </div>
-
-        <h3>
-            Panchayat Secretary
-        </h3>
-
-        <p>
-            Supports Panchayat administration,
-            documentation, records and
-            implementation of programmes.
-        </p>
-
-        <a href="{% url 'members' %}">
-            View Member →
-        </a>
-
-    </div>
-
-
-
-    <!-- WARD MEMBERS -->
-
-    <div class="service-card member-card">
-
-        <div class="service-icon">
-            👥
-        </div>
-
-        <h3>
-            Ward Members
-        </h3>
-
-        <p>
-            Local representatives who help
-            communicate citizen concerns
-            and ward-level requirements.
-        </p>
-
-        <a href="{% url 'members' %}">
-            View Members →
-        </a>
-
-    </div>
-
-
-</div>
-
-
-</section>
-
-<!-- =========================
-     GRAM SABHA MEETINGS
-========================= -->
-
-<section class="section meetings"
-         id="meetings">
-
-```
-<div class="section-title">
-
-    <p>
-        PUBLIC PARTICIPATION
-    </p>
-
-    <h2>
-        Gram Sabha Meetings
-    </h2>
-
-    <span>
-        Stay informed about upcoming
-        Gram Sabha meetings
-    </span>
-
-</div>
-
-
-<div class="notice-box">
-
-
-    <div class="notice">
-
-        <span>
-            📅
-        </span>
-
-        <div>
-
-            <h3>
-                Gram Sabha Meeting
-            </h3>
-
-            <p>
-                Citizens can check the date,
-                time and venue of upcoming
-                Gram Sabha meetings.
+                Check Gram Sabha meeting dates,
+                timings, venues and important
+                meeting information.
             </p>
 
             <a href="{% url 'meetings' %}">
@@ -1368,456 +589,1113 @@
 
     </div>
 
+</section>
 
 
-    <div class="notice">
 
-        <span>
-            🤝
-        </span>
+<!-- ==================================================
+     COMPLAINT
+================================================== -->
 
-        <div>
+<section class="complaint-section" id="complaint">
+
+    <div class="complaint-content">
+
+
+        <div class="complaint-intro">
+
+            <p class="welcome">
+                CITIZEN SUPPORT
+            </p>
+
+            <h2>
+                Have a Problem?
+            </h2>
+
+            <p>
+
+                If you are facing any problem
+                related to roads, water,
+                sanitation, street lights,
+                drainage or other Panchayat
+                services, you can submit your
+                complaint directly through
+                the online system.
+
+            </p>
+
+
+            <div class="complaint-points">
+
+                <span>
+                    ✓ Easy Online Complaint
+                </span>
+
+                <span>
+                    ✓ Complaint ID Generation
+                </span>
+
+                <span>
+                    ✓ Track Complaint Status
+                </span>
+
+                <span>
+                    ✓ Transparent Resolution
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="complaint-card">
+
+            <div class="complaint-icon">
+                📝
+            </div>
 
             <h3>
-                Citizen Participation
+                Submit Your Complaint
             </h3>
 
             <p>
-                Gram Sabha provides citizens
-                an opportunity to participate
-                in local development discussions.
+
+                Tell us about your problem.
+                You can also upload an image
+                related to your complaint.
+
             </p>
 
-            <a href="{% url 'meetings' %}">
-                Meeting Information →
+            <a href="{% url 'submit_complaint' %}"
+               class="btn primary complaint-btn">
+
+                📝 Submit Complaint
+
+            </a>
+
+            <a href="{% url 'track_complaint' %}"
+               class="btn secondary">
+
+                🔍 Track Complaint
+
             </a>
 
         </div>
 
     </div>
 
-
-</div>
-
-
 </section>
 
-<!-- =========================
-     FUNDS PREVIEW
-========================= -->
-
-<section class="section funds-preview">
-
-<div class="section-title">
-
-    <p>
-        FINANCIAL TRANSPARENCY
-    </p>
-
-    <h2>
-        Panchayat Funds
-    </h2>
-
-    <span>
-        View Panchayat fund receipts,
-        expenditure and remaining balance
-    </span>
-
-</div>
 
 
-<div class="about-box">
+<!-- ==================================================
+     CITIZEN VOICE
+================================================== -->
 
-    <p>
+<section class="section">
 
-        Panchayat fund information is provided
-        to promote transparency and help citizens
-        understand how public funds are received
-        and utilized.
+    <div class="section-title">
 
-    </p>
+        <p>
+            CITIZEN VOICE
+        </p>
 
+        <h2>
+            What Can You Report?
+        </h2>
 
-    <p>
-
-        Citizens can view available financial
-        information and development-related
-        expenditure through the dedicated
-        Panchayat Funds page.
-
-    </p>
-
-
-    <br>
-
-
-    <a href="{% url 'funds' %}"
-       class="btn primary">
-
-        💰 View Panchayat Funds →
-
-    </a>
-
-</div>
-
-
-</section>
-<!-- =========================
-     CONTACT SECTION
-========================= -->
-
-<section class="contact"
-         id="contact">
-
-
-<div class="contact-content">
-
-
-    <p class="welcome">
-        GET IN TOUCH
-    </p>
-
-
-    <h2>
-        Gram Panchayat Reuri
-    </h2>
-
-
-    <p>
-        For Panchayat related information,
-        citizens can contact the Panchayat
-        office or submit their issue through
-        the online complaint system.
-    </p>
-
-
-    <div class="contact-actions">
-
-
-        <a href="{% url 'submit_complaint' %}"
-           class="btn primary">
-
-            📝 Report a Problem
-
-        </a>
-
-
-        <a href="{% url 'contact' %}"
-           class="btn secondary">
-
-            📞 Contact Panchayat
-
-        </a>
-
+        <span>
+            Report common problems affecting our village
+        </span>
 
     </div>
 
 
-</div>
+    <div class="service-grid">
 
 
-</section>
+        <div class="service-card">
 
-<!-- =========================
-     FINAL CALL TO ACTION
-========================= -->
-
-<section class="section final-section">
-
-```
-<div class="section-title">
-
-    <p>
-        DIGITAL PANCHAYAT
-    </p>
-
-
-    <h2>
-        Your Voice Matters
-    </h2>
-
-
-    <span>
-        Together we can make Gram Panchayat
-        Reuri more transparent and connected.
-    </span>
-
-</div>
-
-
-<div class="about-box final-box">
-
-
-    <div class="final-item">
-
-        <span>
-            📝
-        </span>
-
-        <div>
+            <div class="service-icon">
+                🚰
+            </div>
 
             <h3>
-                Submit Complaint
+                Water Problem
             </h3>
 
             <p>
-                Report local problems directly
-                to the Panchayat.
+                Report water supply,
+                leakage or drinking water
+                related problems.
             </p>
 
             <a href="{% url 'submit_complaint' %}">
-                Submit Now →
+                Report Problem →
             </a>
 
         </div>
 
-    </div>
 
+        <div class="service-card">
 
-
-    <div class="final-item">
-
-        <span>
-            🔍
-        </span>
-
-        <div>
+            <div class="service-icon">
+                🛣️
+            </div>
 
             <h3>
-                Track Complaint
+                Road Problem
             </h3>
 
             <p>
-                Check the current status of
-                your submitted complaint.
+                Report damaged roads,
+                potholes or drainage
+                related issues.
             </p>
 
-            <a href="{% url 'track_complaint' %}">
-                Track Now →
+            <a href="{% url 'submit_complaint' %}">
+                Report Problem →
             </a>
 
         </div>
 
-    </div>
 
+        <div class="service-card">
 
-
-    <div class="final-item">
-
-        <span>
-            📢
-        </span>
-
-        <div>
+            <div class="service-icon">
+                💡
+            </div>
 
             <h3>
-                Stay Updated
+                Street Light
             </h3>
 
             <p>
-                Check official notices and
-                Panchayat announcements.
+                Report damaged or
+                non-working street lights
+                in your area.
             </p>
 
-            <a href="{% url 'notices' %}">
-                View Notices →
+            <a href="{% url 'submit_complaint' %}">
+                Report Problem →
+            </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🗑️
+            </div>
+
+            <h3>
+                Cleanliness
+            </h3>
+
+            <p>
+                Report garbage,
+                sanitation and cleanliness
+                problems.
+            </p>
+
+            <a href="{% url 'submit_complaint' %}">
+                Report Problem →
             </a>
 
         </div>
 
     </div>
-
-
-</div>
-```
 
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-```
-<div class="footer-content">
 
 
-    <!-- BRAND -->
+<!-- ==================================================
+     NOTICES
+================================================== -->
 
-    <div class="footer-brand">
+<section class="section notices" id="notices">
 
-        <div class="footer-logo">
-            🏛️
+    <div class="section-title">
+
+        <p>
+            LATEST INFORMATION
+        </p>
+
+        <h2>
+            Notices & Announcements
+        </h2>
+
+        <span>
+            Important information and announcements
+            from Gram Panchayat Reuri
+        </span>
+
+    </div>
+
+
+    <div class="notice-box">
+
+
+        <div class="notice">
+
+            <span>
+                NEW
+            </span>
+
+            <div>
+
+                <h3>
+                    Panchayat Announcements
+                </h3>
+
+                <p>
+                    Important Panchayat announcements
+                    and public information will be
+                    displayed for citizens.
+                </p>
+
+                <a href="{% url 'notices' %}">
+                    View All Notices →
+                </a>
+
+            </div>
+
         </div>
 
 
-        <h3>
-            Meri Panchayat
-        </h3>
+        <div class="notice">
 
+            <span>
+                INFO
+            </span>
+
+            <div>
+
+                <h3>
+                    Citizen Updates
+                </h3>
+
+                <p>
+                    Citizens can regularly check
+                    this section for new updates
+                    and important Panchayat information.
+                </p>
+
+                <a href="{% url 'notices' %}">
+                    View Notices →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     DEVELOPMENT
+================================================== -->
+
+<section class="section development" id="development">
+
+    <div class="section-title">
 
         <p>
+            VILLAGE DEVELOPMENT
+        </p>
+
+        <h2>
+            Development Works
+        </h2>
+
+        <span>
+            Information about development activities
+            and public works in the village
+        </span>
+
+    </div>
+
+
+    <div class="development-box">
+
+
+        <div class="development-item">
+
+            <span>
+                🛣️
+            </span>
+
+            <div>
+
+                <h3>
+                    Roads & Infrastructure
+                </h3>
+
+                <p>
+                    Information about road construction,
+                    repair work and village infrastructure
+                    development.
+                </p>
+
+                <a href="{% url 'development' %}">
+                    View Development →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="development-item">
+
+            <span>
+                💧
+            </span>
+
+            <div>
+
+                <h3>
+                    Water & Sanitation
+                </h3>
+
+                <p>
+                    Updates about water supply,
+                    sanitation, drainage and
+                    cleanliness initiatives.
+                </p>
+
+                <a href="{% url 'development' %}">
+                    View Development →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="development-item">
+
+            <span>
+                🌳
+            </span>
+
+            <div>
+
+                <h3>
+                    Environment
+                </h3>
+
+                <p>
+                    Village cleanliness,
+                    plantation and environmental
+                    improvement activities.
+                </p>
+
+                <a href="{% url 'development' %}">
+                    View Development →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     GOVERNMENT SCHEMES
+================================================== -->
+
+<section class="section schemes" id="schemes">
+
+    <div class="section-title">
+
+        <p>
+            GOVERNMENT INITIATIVES
+        </p>
+
+        <h2>
+            Government Schemes
+        </h2>
+
+        <span>
+            Important welfare and development
+            schemes for citizens
+        </span>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🏠
+            </div>
+
+            <h3>
+                Housing Schemes
+            </h3>
+
+            <p>
+                Information about government
+                housing assistance and
+                rural housing schemes.
+            </p>
+
+            <a href="{% url 'schemes' %}">
+                View Schemes →
+            </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🚰
+            </div>
+
+            <h3>
+                Water Schemes
+            </h3>
+
+            <p>
+                Information about drinking
+                water supply and rural
+                water-related initiatives.
+            </p>
+
+            <a href="{% url 'schemes' %}">
+                View Schemes →
+            </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                👷
+            </div>
+
+            <h3>
+                Employment Schemes
+            </h3>
+
+            <p>
+                Information about rural
+                employment and livelihood
+                support programmes.
+            </p>
+
+            <a href="{% url 'schemes' %}">
+                View Schemes →
+            </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                👴
+            </div>
+
+            <h3>
+                Pension Schemes
+            </h3>
+
+            <p>
+                Information about eligible
+                citizens and government
+                social security assistance.
+            </p>
+
+            <a href="{% url 'schemes' %}">
+                View Schemes →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     PANCHAYAT MEMBERS
+================================================== -->
+
+<section class="section members" id="members">
+
+    <div class="section-title">
+
+        <p>
+            PANCHAYAT TEAM
+        </p>
+
+        <h2>
+            Panchayat Members
+        </h2>
+
+        <span>
+            Meet the representatives serving
             Gram Panchayat Reuri
-        </p>
+        </span>
 
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <div class="service-card member-card">
+
+            <div class="service-icon">
+                👨‍💼
+            </div>
+
+            <h3>
+                Gram Pradhan
+            </h3>
+
+            <p>
+                Elected representative responsible
+                for Panchayat administration,
+                development and citizen welfare.
+            </p>
+
+            <a href="{% url 'members' %}">
+                View Member →
+            </a>
+
+        </div>
+
+
+        <div class="service-card member-card">
+
+            <div class="service-icon">
+                🧑‍💼
+            </div>
+
+            <h3>
+                Panchayat Secretary
+            </h3>
+
+            <p>
+                Supports Panchayat administration,
+                documentation, records and
+                implementation of programmes.
+            </p>
+
+            <a href="{% url 'members' %}">
+                View Member →
+            </a>
+
+        </div>
+
+
+        <div class="service-card member-card">
+
+            <div class="service-icon">
+                👥
+            </div>
+
+            <h3>
+                Ward Members
+            </h3>
+
+            <p>
+                Local representatives who help
+                communicate citizen concerns
+                and ward-level requirements.
+            </p>
+
+            <a href="{% url 'members' %}">
+                View Members →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     GRAM SABHA MEETINGS
+================================================== -->
+
+<section class="section meetings" id="meetings">
+
+    <div class="section-title">
 
         <p>
-            A Digital Platform for Citizens
+            PUBLIC PARTICIPATION
         </p>
 
-    </div>
+        <h2>
+            Gram Sabha Meetings
+        </h2>
 
-
-
-    <!-- QUICK LINKS -->
-
-    <div class="footer-links">
-
-        <h4>
-            Quick Links
-        </h4>
-
-
-        <a href="{% url 'home' %}">
-            Home
-        </a>
-
-
-        <a href="{% url 'about' %}">
-            About
-        </a>
-
-
-        <a href="{% url 'services' %}">
-            Services
-        </a>
-
-
-        <a href="{% url 'notices' %}">
-            Notices
-        </a>
-
-
-        <a href="{% url 'development' %}">
-            Development
-        </a>
+        <span>
+            Stay informed about upcoming
+            Gram Sabha meetings
+        </span>
 
     </div>
 
 
-
-    <!-- CITIZEN LINKS -->
-
-    <div class="footer-links">
-
-        <h4>
-            Citizen
-        </h4>
+    <div class="notice-box">
 
 
-        <a href="{% url 'submit_complaint' %}">
-            Submit Complaint
-        </a>
+        <div class="notice">
+
+            <span>
+                📅
+            </span>
+
+            <div>
+
+                <h3>
+                    Gram Sabha Meeting
+                </h3>
+
+                <p>
+                    Citizens can check the date,
+                    time and venue of upcoming
+                    Gram Sabha meetings.
+                </p>
+
+                <a href="{% url 'meetings' %}">
+                    View Meetings →
+                </a>
+
+            </div>
+
+        </div>
 
 
-        <a href="{% url 'track_complaint' %}">
-            Track Complaint
-        </a>
+        <div class="notice">
+
+            <span>
+                🤝
+            </span>
+
+            <div>
+
+                <h3>
+                    Citizen Participation
+                </h3>
+
+                <p>
+                    Gram Sabha provides citizens
+                    an opportunity to participate
+                    in local development discussions.
+                </p>
+
+                <a href="{% url 'meetings' %}">
+                    Meeting Information →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-        <a href="{% url 'dashboard' %}">
-            Dashboard
-        </a>
 
+<!-- ==================================================
+     FUNDS
+================================================== -->
 
-        <a href="{% url 'profile' %}">
-            Profile
-        </a>
+<section class="section funds-preview">
 
+    <div class="section-title">
 
-        <a href="{% url 'funds' %}">
+        <p>
+            FINANCIAL TRANSPARENCY
+        </p>
+
+        <h2>
             Panchayat Funds
-        </a>
+        </h2>
+
+        <span>
+            View Panchayat fund receipts,
+            expenditure and remaining balance
+        </span>
 
     </div>
 
 
-
-    <!-- CONTACT -->
-
-    <div class="footer-contact">
-
-        <h4>
-            Panchayat Office
-        </h4>
-
+    <div class="about-box">
 
         <p>
-            📍 Gram Panchayat Reuri
+
+            Panchayat fund information is provided
+            to promote transparency and help citizens
+            understand how public funds are received
+            and utilized.
+
         </p>
 
 
         <p>
-            📞 Panchayat Office
+
+            Citizens can view available financial
+            information and development-related
+            expenditure through the dedicated
+            Panchayat Funds page.
+
         </p>
 
 
-        <p>
-            📧 Official Information Portal
-        </p>
+        <br>
 
 
-        <a href="{% url 'contact' %}">
-            Contact Us →
+        <a href="{% url 'funds' %}"
+           class="btn primary">
+
+            💰 View Panchayat Funds →
+
         </a>
 
     </div>
 
-
-</div>
-
+</section>
 
 
-<!-- COPYRIGHT -->
 
-<div class="footer-bottom">
+<!-- ==================================================
+     CONTACT
+================================================== -->
 
+<section class="contact" id="contact">
 
-    <p>
+    <div class="contact-content">
 
-        © 2026
-        <strong>Meri Panchayat</strong>.
-        All Rights Reserved.
+        <p class="welcome">
+            GET IN TOUCH
+        </p>
 
-    </p>
+        <h2>
+            Gram Panchayat Reuri
+        </h2>
 
+        <p>
 
-    <p>
+            For Panchayat related information,
+            citizens can contact the Panchayat
+            office or submit their issue through
+            the online complaint system.
 
-        Gram Panchayat Reuri
-        |
-        Digital Panchayat Portal
-
-    </p>
-
-
-    <p>
-
-        Developed by
-        <strong>Adarsh Pal</strong>
-
-    </p>
+        </p>
 
 
-</div>
-```
+        <div class="contact-actions">
+
+            <a href="{% url 'submit_complaint' %}"
+               class="btn primary">
+
+                📝 Report a Problem
+
+            </a>
+
+
+            <a href="{% url 'contact' %}"
+               class="btn secondary">
+
+                📞 Contact Panchayat
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FINAL CTA
+================================================== -->
+
+<section class="section final-section">
+
+    <div class="section-title">
+
+        <p>
+            DIGITAL PANCHAYAT
+        </p>
+
+        <h2>
+            Your Voice Matters
+        </h2>
+
+        <span>
+            Together we can make Gram Panchayat
+            Reuri more transparent and connected.
+        </span>
+
+    </div>
+
+
+    <div class="about-box final-box">
+
+
+        <div class="final-item">
+
+            <span>
+                📝
+            </span>
+
+            <div>
+
+                <h3>
+                    Submit Complaint
+                </h3>
+
+                <p>
+                    Report local problems directly
+                    to the Panchayat.
+                </p>
+
+                <a href="{% url 'submit_complaint' %}">
+                    Submit Now →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="final-item">
+
+            <span>
+                🔍
+            </span>
+
+            <div>
+
+                <h3>
+                    Track Complaint
+                </h3>
+
+                <p>
+                    Check the current status of
+                    your submitted complaint.
+                </p>
+
+                <a href="{% url 'track_complaint' %}">
+                    Track Now →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="final-item">
+
+            <span>
+                📢
+            </span>
+
+            <div>
+
+                <h3>
+                    Stay Updated
+                </h3>
+
+                <p>
+                    Check official notices and
+                    Panchayat announcements.
+                </p>
+
+                <a href="{% url 'notices' %}">
+                    View Notices →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                🏛️
+            </div>
+
+            <h3>
+                Meri Panchayat
+            </h3>
+
+            <p>
+                Gram Panchayat Reuri
+            </p>
+
+            <p>
+                A Digital Platform for Citizens
+            </p>
+
+        </div>
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-links">
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'about' %}">
+                About
+            </a>
+
+            <a href="{% url 'services' %}">
+                Services
+            </a>
+
+            <a href="{% url 'notices' %}">
+                Notices
+            </a>
+
+            <a href="{% url 'development' %}">
+                Development
+            </a>
+
+        </div>
+
+
+        <!-- CITIZEN -->
+
+        <div class="footer-links">
+
+            <h4>
+                Citizen
+            </h4>
+
+            <a href="{% url 'submit_complaint' %}">
+                Submit Complaint
+            </a>
+
+            <a href="{% url 'track_complaint' %}">
+                Track Complaint
+            </a>
+
+            <a href="{% url 'dashboard' %}">
+                Dashboard
+            </a>
+
+            <a href="{% url 'profile' %}">
+                Profile
+            </a>
+
+            <a href="{% url 'funds' %}">
+                Panchayat Funds
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-contact">
+
+            <h4>
+                Panchayat Office
+            </h4>
+
+            <p>
+                📍 Gram Panchayat Reuri
+            </p>
+
+            <p>
+                📞 Panchayat Office
+            </p>
+
+            <p>
+                📧 Official Information Portal
+            </p>
+
+            <a href="{% url 'contact' %}">
+                Contact Us →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026
+            <strong>Meri Panchayat</strong>.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            Gram Panchayat Reuri |
+            Digital Panchayat Portal
+        </p>
+
+        <p>
+            Developed by
+            <strong>Adarsh Pal</strong>
+        </p>
+
+    </div>
 
 </footer>
 
-<!-- =========================
-     HAMBURGER MENU SCRIPT
-========================= -->
+
+
+<!-- ==================================================
+     HAMBURGER MENU JAVASCRIPT
+================================================== -->
 
 <script>
 
@@ -1825,7 +1703,13 @@ function toggleMenu() {
 
     const menu = document.getElementById("navMenu");
 
+    const button = document.querySelector(".menu-toggle");
+
     menu.classList.toggle("active");
+
+    const isOpen = menu.classList.contains("active");
+
+    button.setAttribute("aria-expanded", isOpen);
 
 }
 
@@ -1838,7 +1722,6 @@ document.addEventListener("click", function(event) {
 
     const button = document.querySelector(".menu-toggle");
 
-
     if (
         menu &&
         button &&
@@ -1847,6 +1730,8 @@ document.addEventListener("click", function(event) {
     ) {
 
         menu.classList.remove("active");
+
+        button.setAttribute("aria-expanded", "false");
 
     }
 
@@ -1860,13 +1745,17 @@ document.querySelectorAll(".nav-menu a").forEach(function(link) {
     link.addEventListener("click", function() {
 
         document.getElementById("navMenu")
-                .classList.remove("active");
+            .classList.remove("active");
+
+        document.querySelector(".menu-toggle")
+            .setAttribute("aria-expanded", "false");
 
     });
 
 });
 
 </script>
+
 
 </body>
 
