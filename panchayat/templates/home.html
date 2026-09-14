@@ -21,143 +21,69 @@
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
-
 <nav class="navbar">
 
+    <div class="navbar-brand">
+        <div class="brand-icon">🏛️</div>
 
-<!-- LOGO -->
-
-<a href="/" class="brand">
-
-    <div class="logo-icon">
-        🏛️
+        <div>
+            <h2>Meri Panchayat</h2>
+            <span>Gram Panchayat Reuri</span>
+        </div>
     </div>
 
-    <div class="brand-text">
 
-        <h2>
-            Meri Panchayat
-        </h2>
+    <div class="navbar-actions">
 
-        <span>
-            Gram Panchayat Reuri
-        </span>
+        <!-- Login -->
+        <a href="{% url 'login' %}" class="login-btn">
+            Login
+        </a>
+
+        <!-- Sign Up -->
+        <a href="{% url 'signup' %}" class="signup-btn">
+            Sign Up
+        </a>
+
+        <!-- Hamburger -->
+        <button class="menu-btn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
     </div>
-
-</a>
-
-
-<!-- THREE LINE MENU -->
-
-<button class="menu-toggle"
-        onclick="toggleMenu()"
-        type="button"
-        aria-label="Open Menu">
-
-    <span></span>
-    <span></span>
-    <span></span>
-
-</button>
-
-
-<!-- NAVIGATION MENU -->
-
-<div class="nav-menu"
-     id="navMenu">
-
-
-    <a href="/">
-        🏠 Home
-    </a>
-
-
-    <a href="{% url 'about' %}">
-        ℹ️ About
-    </a>
-
-
-    <a href="{% url 'services' %}">
-        🛠️ Services
-    </a>
-
-
-    <a href="{% url 'schemes' %}">
-        🏛️ Schemes
-    </a>
-
-
-    <a href="{% url 'members' %}">
-        👥 Members
-    </a>
-
-
-    <a href="{% url 'funds' %}">
-        💰 Funds
-    </a>
-
-
-    <a href="{% url 'notices' %}">
-        📢 Notices
-    </a>
-
-
-    <a href="{% url 'development' %}">
-        🏗️ Development
-    </a>
-
-
-    <a href="{% url 'meetings' %}">
-        📅 Meetings
-    </a>
-
-
-    <a href="{% url 'submit_complaint' %}">
-        📝 Complaint
-    </a>
-
-
-    <a href="{% url 'track_complaint' %}">
-        🔍 Track Complaint
-    </a>
-
-
-    <a href="{% url 'contact' %}">
-        📞 Contact
-    </a>
-
-
-    <a href="{% url 'dashboard' %}">
-        📊 Dashboard
-    </a>
-
-
-    <a href="{% url 'profile' %}">
-        👤 Profile
-    </a>
-
-
-    <hr>
-
-
-    <a href="{% url 'login' %}">
-        🔐 Login
-    </a>
-
-
-    <a href="{% url 'signup' %}">
-        ✨ Create Account
-    </a>
-
-
-</div>
-
 
 </nav>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<div id="menu" class="side-menu">
+
+    <a href="{% url 'home' %}">Home</a>
+
+    <a href="{% url 'about' %}">About</a>
+
+    <a href="{% url 'services' %}">Services</a>
+
+    <a href="{% url 'development' %}">Development</a>
+
+    <a href="{% url 'notices' %}">Notices</a>
+
+    <a href="{% url 'meetings' %}">Gram Sabha Meetings</a>
+
+    <a href="{% url 'schemes' %}">Government Schemes</a>
+
+    <a href="{% url 'members' %}">Panchayat Members</a>
+
+    <a href="{% url 'funds' %}">Panchayat Funds</a>
+
+    <a href="{% url 'contact' %}">Contact</a>
+
+</div>
 
 <!-- =========================
      HERO SECTION
@@ -1543,7 +1469,7 @@
 <section class="contact"
          id="contact">
 
-```
+
 <div class="contact-content">
 
 
@@ -1588,7 +1514,7 @@
 
 
 </div>
-```
+
 
 </section>
 
