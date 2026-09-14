@@ -4296,3 +4296,183 @@ section.hero .hero-image-shape img {
         width: 100% !important;
     }
 }
+
+
+/* =====================================================
+   PROFESSIONAL FOOTER
+===================================================== */
+
+footer {
+    background: linear-gradient(135deg, #0f2a5f, #1e3a8a);
+    color: #ffffff;
+    padding: 55px 8% 20px;
+    margin-top: 60px;
+}
+
+footer a {
+    color: #e5e7eb;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+footer a:hover {
+    color: #ff8a00;
+    padding-left: 4px;
+}
+
+/* Footer Main Layout */
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 45px;
+}
+
+/* Footer Heading */
+footer h2,
+footer h3 {
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+
+footer h2 {
+    font-size: 25px;
+}
+
+footer h3 {
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+footer h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 45px;
+    height: 3px;
+    background: #ff6a00;
+    border-radius: 10px;
+}
+
+/* Footer Description */
+footer p {
+    color: #dbe4f0;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* Quick Links / Citizen Links */
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    margin-bottom: 11px;
+}
+
+footer li a {
+    font-size: 15px;
+}
+
+/* Contact Section */
+footer .contact-info {
+    line-height: 1.9;
+}
+
+/* Contact Button */
+footer .contact-btn,
+footer a[href*="contact"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ff6a00;
+    color: #ffffff;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-top: 12px;
+    transition: 0.3s ease;
+}
+
+footer .contact-btn:hover,
+footer a[href*="contact"]:hover {
+    background: #e85d00;
+    color: #ffffff;
+    transform: translateY(-2px);
+    padding-left: 20px;
+}
+
+/* =====================================================
+   DEVELOPER CREDIT
+===================================================== */
+
+.footer-developer {
+    margin-top: 35px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+    color: #dbe4f0;
+    font-size: 14px;
+}
+
+.footer-developer strong {
+    color: #ff8a00;
+    font-size: 16px;
+    font-weight: 800;
+    background: rgba(255,106,0,0.12);
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+/* Copyright */
+.footer-copyright {
+    text-align: center;
+    margin-top: 18px;
+    color: #aebbd0;
+    font-size: 13px;
+}
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    footer {
+        padding: 40px 6% 18px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    footer h2 {
+        font-size: 22px;
+    }
+
+    footer h3 {
+        font-size: 17px;
+    }
+
+    .footer-developer strong {
+        display: block;
+        width: fit-content;
+        margin: 8px auto 0;
+    }
+}
